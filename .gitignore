@@ -1,0 +1,4 @@
+# Herramientas y releases del autor (no se publican)
+private/
+__pycache__/
+*.zim

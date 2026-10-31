@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use WikiClassroom, please credit it as below."
+type: dataset
+title: "WikiClassroom (WikiAula)"
+abstract: >-
+  Interactive school courses that work without internet: Maths from grade 1 to grade 12, Physics and
+  Chemistry from grade 8 to grade 12, as one ZIM file per language, with encyclopedia-style lessons,
+  watercolour figures and generated exercises. A project of Offlined.
+authors:
+  - given-names: "Álvaro"
+    family-names: "C. Chulvi"
+    affiliation: "Offlined"
+    website: "https://www.offlined.org"
+repository-code: "https://github.com/Aruvaro-Chulvi/WikiClassroom"
+url: "https://www.offlined.org"
+license: CC-BY-SA-4.0
+version: "2026-10"
+date-released: "2026-10-31"
+keywords:
+  - education
+  - mathematics
+  - physics
+  - chemistry
+  - offline
+  - ZIM
+  - Kiwix
+  - Offlined

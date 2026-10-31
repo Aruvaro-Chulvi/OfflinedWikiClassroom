@@ -1,0 +1,34 @@
+name: "⬇️ Download problem / Problema de descarga"
+description: "A WikiClassroom file does not download, stops or says it is damaged. / Un archivo de WikiAula no se descarga, se corta o dice que está dañado."
+title: "[Download] "
+labels: ["download"]
+body:
+  - type: input
+    id: file
+    attributes:
+      label: "Language or file / Idioma o archivo"
+      placeholder: "Español · wikiaula_es_all_2026-10.zim"
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: "Where / Dónde"
+      options:
+        - "From Offlined (Wikis → WikiAula) / Desde Offlined (Wikis → WikiAula)"
+        - "By hand from the release page / A mano desde la página de la release"
+        - "Opening it in Kiwix / Al abrirlo en Kiwix"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "Offlined or Kiwix version / Versión de Offlined o de Kiwix"
+      placeholder: "3.0.0"
+  - type: textarea
+    id: what
+    attributes:
+      label: "What happens / Qué pasa"
+      description: "The message you see and how far it got (%). / El mensaje que sale y hasta dónde llegó (%)."
+    validations:
+      required: true

@@ -1,0 +1,61 @@
+name: "📝 Mistake in a lesson / Error en una lección"
+description: "A wrong answer, a typo, a broken figure or a wrong explanation. / Una respuesta mal, una errata, un dibujo roto o una explicación equivocada."
+title: "[Lesson] "
+labels: ["lesson error"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping to improve WikiClassroom! One lesson per report, please.
+        ¡Gracias por ayudar a mejorar WikiAula! Una lección por aviso, por favor.
+  - type: dropdown
+    id: language
+    attributes:
+      label: "Language / Idioma"
+      options:
+        - Español (es)
+        - English (en)
+        - Français (fr)
+        - Português (pt)
+        - Italiano (it)
+        - Deutsch (de)
+        - Русский (ru)
+        - 中文 (zh)
+        - हिन्दी (hi)
+        - العربية (ar)
+    validations:
+      required: true
+  - type: input
+    id: lesson
+    attributes:
+      label: "Course and lesson / Curso y lección"
+      description: "As shown at the top of the page. / Tal como sale arriba en la página."
+      placeholder: "Matemáticas (Grado 4) › Los ángulos"
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: "Problem / Problema"
+      options:
+        - "An exercise marks a right answer as wrong (or the other way round) / Un ejercicio da por mala una respuesta buena (o al revés)"
+        - "Mistake in the text or in a formula / Error en el texto o en una fórmula"
+        - "Figure wrong or not shown / Dibujo equivocado o que no se ve"
+        - "Typo / Errata"
+        - "Hard to understand for this grade / Difícil de entender para este curso"
+        - "Wrong Wikipedia link / Enlace a Wikipedia equivocado"
+        - "Other / Otro"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: "What is wrong / Qué está mal"
+      description: "Copy the sentence or the exercise and your answer. A screenshot helps. / Copia la frase o el ejercicio y tu respuesta. Una captura ayuda."
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: "What it should say / Qué debería decir"
+      description: "If you know it. / Si lo sabes."

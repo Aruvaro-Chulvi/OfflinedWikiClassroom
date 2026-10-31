@@ -1,0 +1,41 @@
+{
+  "name": "WikiClassroom",
+  "version": "2026-10",
+  "updated": "2026-10-31",
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Español",
+      "file": "wikiaula_es_all_2026-10.zim",
+      "url": "https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-10.zim",
+      "size": 12492650,
+      "md5": "b3a1fa95622deb0415bc8184cdbb1cfb",
+      "title": "Offlined WikiAula",
+      "date": "2026-10-30",
+      "courses": 19,
+      "lessons": 717,
+      "grades": [
+        1,
+        12
+      ],
+      "subjects": {
+        "math": [
+          1,
+          12
+        ],
+        "physics-chemistry": [
+          8,
+          10
+        ],
+        "physics": [
+          11,
+          12
+        ],
+        "chemistry": [
+          11,
+          12
+        ]
+      }
+    }
+  ]
+}
