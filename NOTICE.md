@@ -12,6 +12,9 @@
 You may copy, adapt and share WikiClassroom, also commercially, as long as you credit the author and share
 your changes under the same license.
 
+**Offlined** (the application by Álvaro C. Chulvi and Eric Uguet, https://www.offlined.org) is authorized by
+the author to use, include and distribute WikiClassroom, also for commercial purposes.
+
 ## How to credit
 
 > WikiClassroom (WikiAula) by Álvaro C. Chulvi, a project of Offlined (https://www.offlined.org) — CC BY-SA 4.0.
