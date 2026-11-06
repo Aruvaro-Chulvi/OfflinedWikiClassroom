@@ -25,7 +25,7 @@ the app that brings Wikipedia, maps and AI to your computer without internet. Ea
 
 | Language | File | Courses | Lessons | Size | Status |
 |---|---|---:|---:|---:|---|
-| Español | [`wikiaula_es_all_2026-10.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-10.zim) | 19 | 717 | 12.5 MB | ✅ Available · under expert review |
+| Español | [`wikiaula_es_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-11.zim) | 19 | 717 | 13.5 MB | ✅ Available · under expert review |
 | English, Français, Português, Italiano, Deutsch, 中文, हिन्दी, العربية, Русский | — | — | — | — | 🛠️ Coming once the Spanish edition is validated |
 
 One download per language, with all its subjects and grades. All files are in [Releases](../../releases);
@@ -80,7 +80,7 @@ app que lleva Wikipedia, mapas e IA a tu ordenador sin internet. Cada idioma es 
 
 | Idioma | Archivo | Cursos | Lecciones | Tamaño | Estado |
 |---|---|---:|---:|---:|---|
-| Español | [`wikiaula_es_all_2026-10.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-10.zim) | 19 | 717 | 12,5 MB | ✅ Disponible · en revisión por expertos |
+| Español | [`wikiaula_es_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-11.zim) | 19 | 717 | 13,5 MB | ✅ Disponible · en revisión por expertos |
 | English, Français, Português, Italiano, Deutsch, 中文, हिन्दी, العربية, Русский | — | — | — | — | 🛠️ Cuando esté validada la edición en español |
 
 Una descarga por idioma, con todas sus asignaturas y cursos. Los archivos están en [Releases](../../releases);
