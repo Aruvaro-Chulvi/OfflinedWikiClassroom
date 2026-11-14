@@ -1,0 +1,75 @@
+/* WikiAula — texts for gen/mat7u3.js (Grade 7 · Unit 3: Integers), in US English. */
+"use strict";
+(function () {
+const G = window.WA.I18N.en.gen;
+const S = G.m7 = G.m7 || {};
+// Helpers: "a"/"an" before a number ("an $80 bill"), "1 degree" / "2 degrees", and money with the "$" in front ("−$45")
+const anP = p => /^8/.test(String(p)) || /^1[18]$/.test(String(p)) ? "an" : "a";
+const deg = n => String(n) === "1" ? "degree" : "degrees";
+const money = x => String(x).startsWith("−") ? "−$" + String(x).slice(1) : "$" + x;
+Object.assign(S, {
+  sigPos: "Positive", sigNeg: "Negative",
+  comp_q: (a, b) => `Which sign goes in the box? <b>${a}</b> <span class="wa-hole">□</span> <b>${b}</b>`,
+  comp_s: (a, b, gt, dosNeg) => `On the number line, ${gt ? a : b} is farther to the right, so it is greater: <b>${a} ${gt ? "&gt;" : "&lt;"} ${b}</b>.${dosNeg ? " Of two negative numbers, the one closer to 0 is greater." : ""}`,
+  mayor_q: (big) => `Which of these numbers is the ${big ? "greatest" : "least"}?`,
+  mayor_s: (big, x, sorted) => `In order from least to greatest: ${sorted}. The ${big ? "greatest" : "least"} is <b>${x}</b>.`,
+  abs_q: a => `Find the absolute value: <b>|${a}|</b>`,
+  abs_s: (a, r) => `The absolute value is the distance from 0, without the sign: |${a}| = <b>${r}</b>.`,
+  op_q: a => `What is the opposite of <b>${a}</b>?`,
+  op_s: (a, r) => `The opposite has the same absolute value and the opposite sign: the opposite of ${a} is <b>${r}</b>. A number plus its opposite is 0.`,
+  recta_q: "What integer is marked on the number line?",
+  recta_s: (r) => `Count the tick marks from 0: the point is at <b>${r}</b>.`,
+  ctx: [
+    { q: (a, b) => `At 6 a.m., the thermometer read ${a} °C. By noon, the temperature had gone up ${b} °C. What was the temperature at noon (in °C)?`,
+      f: (a, b) => a + b, s: (a, b, r) => `Going up means adding: ${a} + ${b} = <b>${r}</b> °C.`, a: [-12, -1], b: [3, 18] },
+    { q: (a, b) => `An elevator is on level ${a} and goes down ${b} levels. What level does it stop on? (Level 0 is street level, and the levels below the street are negative.)`,
+      f: (a, b) => a - b, s: (a, b, r) => `Going down means subtracting: ${a} − ${b} = <b>${r}</b>.`, a: [1, 6], b: [3, 10] },
+    { q: (a, b) => `A submarine is at ${a} m (below sea level) and rises ${b} m. What is its new position, in meters?`,
+      f: (a, b) => a + b, s: (a, b, r) => `Going up means adding: ${a} + ${b} = <b>${r}</b> m.`, a: [-300, -80], b: [20, 70], step: 10 },
+    { q: (a, b) => `In a city, the high temperature was ${b} °C and the low was ${a} °C. What was the difference, in degrees?`,
+      f: (a, b) => b - a, s: (a, b, r, na) => `Difference = high − low = ${b} − (${a}) = ${b} + ${na} = <b>${r}</b> °C.`, a: [-15, -2], b: [1, 16] },
+    { q: (a, b) => `Maya has $${a} in her bank account and pays ${anP(b)} $${b} bill from it. What is her balance now, in dollars?`,
+      f: (a, b) => a - b, s: (a, b, r, na, neg) => `Subtract the payment: ${a} − ${b} = <b>${money(r)}</b>.${neg ? " A negative balance means that she owes the bank money." : ""}`, a: [10, 80], b: [40, 150] },
+  ],
+  trad_q: f => `Write as an integer: <i>${f}</i>.`,
+  trad: [
+    { q: n => `${n} ${deg(n)} below zero`, clave: "“below zero”", neg: true, n: [1, 20] },
+    { q: n => `${n} ${deg(n)} above zero`, clave: "“above zero”", neg: false, n: [1, 35] },
+    { q: n => `a debt of $${n}`, clave: "a debt", neg: true, n: [5, 90] },
+    { q: n => `a deposit of $${n} into a bank account`, clave: "a deposit", neg: false, n: [5, 90] },
+    { q: n => `basement level ${n} of a parking garage`, clave: "a basement level (below street level)", neg: true, n: [1, 4] },
+    { q: n => `level ${n} of a building`, clave: "a level above street level", neg: false, n: [1, 12] },
+    { q: n => `a diver at a depth of ${n} m`, clave: "the depth (below sea level)", neg: true, n: [5, 60] },
+    { q: n => `a mountain peak at an elevation of ${n} m`, clave: "the elevation (above sea level)", neg: false, n: [800, 3400], st: 100 },
+    { q: n => `the year ${n} BC`, clave: "“BC” (before Christ)", neg: true, n: [20, 500] },
+    { q: n => `losing ${n} points in a game`, clave: "losing", neg: true, n: [2, 30] },
+    { q: n => `gaining ${n} points in a game`, clave: "gaining", neg: false, n: [2, 30] },
+  ],
+  trad_s: (clave, neg, v) => `${clave.replace(/^(“?)(\w)/, (m, q, c) => q + c.toUpperCase())} → ${neg ? "below 0, so it is a negative number" : "above 0, so it is a positive number"}: <b>${v}</b>.`,
+  trad_dif_q: (a, b) => `In the morning, the thermometer read ${a} °C, and in the afternoon, ${b} °C. How many degrees did the temperature go up?`,
+  trad_dif_s: (a, na, b, r) => `Count on the number line: from ${a} to 0 is ${na} ${deg(na)}, and from 0 to ${b} is another ${b}. In all, ${na} + ${b} = <b>${r}</b> degrees.`,
+  suma_q: e => `Evaluate: <b>${e}</b>`,
+  suma_s_igual: (A, B, r, pos) => `Same sign (${pos ? "both positive" : "both negative"}): add the absolute values, ${A} + ${B} = ${A + B}, and keep the sign: <b>${r}</b>.`,
+  suma_s_op: (a, b) => `The numbers ${a} and ${b} are opposites (same absolute value, different signs): a number plus its opposite is <b>0</b>.`,
+  suma_s_dist: (M, m, r, big, pos) => `Different signs: subtract the absolute values, the greater minus the lesser: ${M} − ${m} = ${M - m}. The sign is the sign of ${big}, the number with the greater absolute value, which is ${pos ? "positive" : "negative"}: <b>${r}</b>. (With counters: ${m === 1 ? "1 zero pair cancels" : m + " zero pairs cancel"} out, and ${M - m === 1 ? "1 " + (pos ? "blue" : "red") + " counter is" : (M - m) + " " + (pos ? "blue" : "red") + " counters are"} left over.)`,
+  resta_s: (e1, e2, r) => `Subtracting means adding the opposite: ${e1} = ${e2} = <b>${r}</b>.`,
+  cadena_s: (pos, negs, sp, sn, r, snAbs) => `Add the positive numbers (${pos === sp ? sp : pos + " = " + sp}) and the negative numbers (${negs === sn ? sn : negs + " = " + sn}) separately: ${sp} − ${snAbs} = <b>${r}</b>.`,
+  par_s: (steps, flatTxt, r) => `Method 1 (first, the inside of each set of parentheses):<br>${steps}<br>Method 2 (remove the parentheses; a − in front changes the sign of <b>every</b> number inside, not just the first one): ${flatTxt} = <b>${r}</b>.`,
+  mult_s: (A, B, R, r, same) => `Absolute values: ${A} · ${B} = ${R}. ${same ? "Same signs → positive" : "Different signs → negative"}: <b>${r}</b>.`,
+  div_s: (A, B, R, r, same) => `Absolute values: ${A} ÷ ${B} = ${R}. ${same ? "Same signs → positive" : "Different signs → negative"}: <b>${r}</b>.`,
+  signo_s2: (k, pos) => !k ? `There are no negative numbers: the result is <b>positive</b>.` : `There ${k === 1 ? "is 1 negative number" : `are ${k} negative numbers`} (the sign rules are the same for multiplying and for dividing). With an even number of negatives, the result is positive; with an odd number, it is negative: <b>${pos ? "positive" : "negative"}</b>.`,
+  signo_q: e => `Without doing the operations, what is the sign of the result of <b>${e}</b>?`,
+  signo_s: (k, pos) => `There ${k === 1 ? "is 1 negative factor" : `are ${k} negative factors`}. With an even number of negatives, the result is positive; with an odd number, it is negative: <b>${pos ? "positive" : "negative"}</b>.`,
+  comb_q: e => `Evaluate: <b>${e}</b>`,
+  comb_s_intro: "Parentheses first, then multiplication and division, and finally addition and subtraction, using the sign rules:",
+  comb2_s_intro: "Parentheses and brackets first (from the inside out), then powers, then multiplication and division, and finally addition and subtraction, using the sign rules:",
+  pot_q: e => `Evaluate: <b>${e}</b>`,
+  pot_s_par: (b, n, prod, r) => `The base is ${b} (with its sign): ${prod} = <b>${r}</b>. ${n % 2 ? "Odd exponent: the result keeps the negative sign." : "Even exponent: the result is positive."}`,
+  pot_s_sin: (a, n, r) => `Careful! Without parentheses, the exponent applies only to the ${a}: −${a}<sup>${n}</sup> = −(${a}<sup>${n}</sup>) = <b>${r}</b>.`,
+  potsig_q: e => `What is the sign of <b>${e}</b>?`,
+  potsig_s_sin: (a, n) => `Without parentheses, the exponent applies only to the ${a}: ${a}<sup>${n}</sup> is positive, and the − sign in front makes it <b>negative</b>.`,
+  potprop_q: e => `Write as a single power: <b>${e}</b>`,
+  potprop_s: (rule, r) => `${rule}: <b>${r}</b>.`,
+  rules: { prod: "Same base: add the exponents", coc: "Same base: subtract the exponents", pp: "Power of a power: multiply the exponents" },
+});
+})();

@@ -1,0 +1,189 @@
+# Offlined WikiAula — textos generales del ZIM en español.
+# (Los textos de la interfaz que usa el motor están en engine/i18n/es.js)
+
+zim:
+  title: Offlined WikiAula
+  description: Cursos interactivos de Primaria, ESO y Bachillerato, sin conexión
+  long_description: |
+    Offlined WikiAula es un aula libre: cursos completos de Primaria, ESO y Bachillerato
+    (grados 1 a 12) con lecciones al estilo de una enciclopedia y ejercicios
+    interactivos que cambian cada vez. Cada lección tiene su nivel de dominio,
+    hay pruebas por unidad, repaso espaciado, experiencia, rachas y logros.
+    Funciona en cualquier lector de Kiwix; dentro de Offlined el progreso se
+    guarda por usuario y Encartha, la IA de Offlined, ayuda con los ejercicios.
+  creator: Offlined
+  publisher: Offlined
+  tags: _category:other;education;mathematics;_pictures:yes;_videos:no;_details:yes;_ftindex:yes
+  source: https://www.offlined.org/
+  license: CC BY-SA 4.0
+
+pages_titles:
+  home: Portada
+  review: Repaso
+  progress: Mi progreso
+  about: Acerca de Offlined WikiAula
+
+# Asignaturas que entran en el ZIM (carpetas de content/es). Las demás siguen en disco,
+# sin publicar, hasta que vuelvan a esta lista. Vacía o ausente: todas.
+asignaturas_activas: [matematicas, fisica-quimica, fisica, quimica]
+
+# Lecciones cuyas figuras llevan el pie integrado ARRIBA, como título en un bocadillo
+# (en vez de debajo): lista de ids de lección, o «todas».
+pies_en_figura: todas
+
+# Etapas (grados internacionales 1–12 con su nombre local)
+etapas:
+  - nombre: Primaria
+    desde: 1
+    hasta: 6
+    curso: "{n}.º de Primaria"
+  - nombre: Secundaria (ESO)
+    desde: 7
+    hasta: 10
+    curso: "{n}.º de ESO"
+  - nombre: Bachillerato
+    desde: 11
+    hasta: 12
+    curso: "{n}.º de Bachillerato"
+
+# Textos que solo usa build.py
+ui_build:
+  course: Curso
+  stage: Nivel
+  unit: Unidad
+  lesson: Lección
+  time: Tiempo
+  minutes: "unos {n} minutos"
+  needs: Conviene saber
+  mastery: Tu dominio
+  seeAnswer: Ver la respuesta
+  seeSolution: Ver la solución
+  figure: Figura
+  tryIt: Inténtalo tú
+  summary: Lo importante
+  worked: Ejercicios resueltos de muestra
+  seeAlso: Véase también
+  inWikipedia: en Wikipedia
+  contents: Contenido
+  siteSub: De Offlined WikiAula, el aula libre
+  subject: Asignatura
+  kind: Tipo
+  extension: Ampliación
+  extNote: "**Lección de ampliación.** Va más allá de los contenidos mínimos del curso: puedes saltarla sin perder el hilo, o estudiarla si quieres llegar más lejos."
+  grade: Grado
+  units: Unidades
+  lessons: Lecciones
+  path: Tu camino
+  subjectStats: "{u} unidades · {l} lecciones"
+  photo: Foto
+  photos: Fotos
+  commons: Wikimedia Commons
+  # Cursos de la comunidad (build.py --curso=…)
+  communityBar: WikiAula · Comunidad
+  communitySub: Un curso de la comunidad de WikiAula
+  communityAbout: Acerca de este curso
+  communityAuthor: Autor
+  communityLicense: Licencia
+  communitySources: Fuentes
+  communityBy: "**Curso de la comunidad de WikiAula**, escrito por {autor} y revisado antes de publicarse. ¿Has visto un error o algo que no debería estar aquí? [Avísanos](https://github.com/Aruvaro-Chulvi/WikiClassroom/issues/new?template=community-report.yml)."
+  communityShare: "¿Quieres publicar tu propio curso? Mira cómo en [WikiClassroom](https://github.com/Aruvaro-Chulvi/WikiClassroom/blob/main/CONTRIBUTING.es.md)."
+  photoCredits: Créditos de las fotos
+  photoCreditsIntro: |
+    Muchas ilustraciones están hechas a partir de fotos libres de Wikimedia Commons,
+    pasadas a acuarela. Estas son sus autoras y autores y sus licencias (dominio
+    público, CC0, CC BY o CC BY-SA). Las ilustraciones derivadas de una foto CC BY-SA
+    se comparten con la misma licencia.
+
+portada:
+  lema: Matemáticas, Física y Química a tu ritmo, sin conexión y gratis. De 1.º de Primaria a 2.º de Bachillerato.
+  que_es_titulo: Qué es Offlined WikiAula
+  que_es: |
+    **Offlined WikiAula** es un aula completa que cabe en un solo archivo y funciona **sin
+    internet**. Tiene **Matemáticas de 1.º de Primaria a 2.º de Bachillerato** y **Física y
+    Química de 2.º de ESO a 2.º de Bachillerato**, escritos como artículos de enciclopedia: explicaciones claras, ejemplos
+    resueltos paso a paso, ilustraciones y enlaces a Wikipedia para saber más. Después de
+    cada lección hay ejercicios que **cambian cada vez**, así que se puede practicar sin
+    aprenderse las respuestas de memoria.
+  rasgos:
+    - icono: wifi-off
+      titulo: Sin conexión y gratis
+      texto: Todo está dentro del archivo. No necesita internet, ni cuentas, ni anuncios, y se puede copiar y compartir.
+    - icono: book
+      titulo: Del colegio al instituto
+      texto: Cientos de lecciones de Matemáticas, Física y Química, ordenadas por curso, con dibujos, fórmulas y ejemplos resueltos paso a paso.
+    - icono: target
+      titulo: Ejercicios que cambian
+      texto: Cada práctica genera ejercicios nuevos y, si fallas, te enseña la solución paso a paso. Al final de cada unidad, una prueba con medalla.
+    - icono: lock
+      titulo: Tu progreso es tuyo
+      texto: Tu nivel, tus rachas y tus repasos se guardan solo en tu equipo. Nadie más los ve ni se envían a ningún sitio.
+  como_titulo: Cómo se aprende
+  pasos:
+    - titulo: Lee la lección
+      texto: Cada lección se lee en 20–60 minutos. Empieza con una idea sencilla y la desarrolla con ejemplos, dibujos y pequeños ejercicios para comprobar que lo entiendes.
+    - titulo: Practica
+      texto: Ocho ejercicios cada vez, siempre distintos. Si te equivocas, ves por qué y cómo se resuelve. Cada acierto suma experiencia (XP).
+    - titulo: Sube de nivel
+      texto: "Cada lección pasa por cuatro niveles: Intentado, Familiar (50 %), Competente (80 %) y Dominado. Para dominarla hay que acertar también otro día: así lo aprendido se queda."
+    - titulo: Repasa y gana medallas
+      texto: Las lecciones que ya sabes vuelven a la página de Repaso unos días después, justo cuando empiezan a olvidarse. Supera la prueba de cada unidad para ganar su medalla.
+  cursos: Cursos
+  cursos_intro: Elige la etapa y después tu curso. Cada tarjeta es una asignatura; la barra muestra cuántas lecciones tienes dominadas.
+  familias_titulo: Para familias y docentes
+  familias: |
+    - **En casa**: lo mejor es que los más pequeños lean las lecciones con un adulto y hagan los
+      pequeños experimentos que se proponen. Desde 3.º o 4.º de Primaria pueden avanzar solos.
+    - **En clase**: cada lección sirve como guía de la sesión y su práctica, como tarea. La página
+      [[Mi progreso]] resume el avance de cada alumno en su equipo y permite guardar una copia.
+    - **Contenidos libres**: los textos tienen licencia CC BY-SA 4.0 y las fotos vienen de
+      Wikimedia Commons, con su autor y su licencia al pie (ver [[Acerca de Offlined WikiAula]]).
+      Puedes copiarlos, adaptarlos y compartirlos citando la fuente.
+
+offlined: >-
+  **Offlined WikiAula brilla en [Offlined](https://www.offlined.org/)**, la app de
+  conocimiento sin conexión: allí tu progreso se guarda en tu perfil (cada
+  persona de la casa con el suyo), cada lección es una tarjeta de *Mi WikiÁlbum* y
+  Encartha, su IA, te explica los ejercicios que fallas sin darte la respuesta.
+
+textos:
+  review: |
+    Lo que se practica una sola vez se olvida. Aquí vuelven las lecciones que ya
+    has practicado, cada vez más espaciadas en el tiempo: al día siguiente, a los
+    tres días, a la semana… Si aciertas, el siguiente repaso tardará más; si
+    fallas, volverá pronto.
+  progress: |
+    Tu experiencia, tu racha, tus cursos y tus logros.
+  about: |
+    **Offlined WikiAula** es un proyecto educativo libre: cursos de Primaria, ESO y
+    Bachillerato escritos para estudiar sin conexión a Internet.
+
+    ## Contenido
+
+    Las lecciones son originales y siguen los contenidos habituales de cada
+    curso en Europa y América (grados internacionales 1 a 12). Los ejercicios se
+    generan al momento, así que nunca se repiten igual. Puedes consultar más
+    información en los enlaces a Wikipedia de cada lección.
+
+    ## Tu progreso
+
+    En un lector de Kiwix, tu progreso se guarda en el navegador o la app que
+    estés usando. Si cambias de dispositivo o borras los datos del navegador, se
+    pierde: usa los botones de [[Mi progreso]] para guardar una copia y
+    cargarla después. En Offlined se guarda en tu perfil de usuario.
+
+    ## Licencia
+
+    Los textos, ejercicios e imágenes de Offlined WikiAula están disponibles bajo la
+    licencia [Creative Commons Atribución-CompartirIgual 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).
+    Puedes copiarlos, adaptarlos y compartirlos, también con fines comerciales,
+    siempre que cites a Offlined WikiAula y compartas tus cambios con la misma licencia.
+    Offlined WikiAula no está relacionada con la Fundación Wikimedia ni con Wikipedia.
+
+    Las fórmulas se muestran con [KaTeX](https://katex.org/) (licencia MIT,
+    © Khan Academy y colaboradores), incluido en este archivo junto con su
+    licencia (`_aula/katex/LICENSE.txt`).
+
+pie: >-
+  Los textos de Offlined WikiAula están disponibles bajo la licencia
+  [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).
+  Un proyecto de [Offlined](https://www.offlined.org/) · [[Acerca de Offlined WikiAula]]

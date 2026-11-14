@@ -1,0 +1,11 @@
+# Withdrawn community courses · Cursos de la comunidad retirados
+#
+# A course listed here is not published, even if its folder still exists, and Offlined stops serving it to
+# everyone who had installed it (they can only remove it). Deleting the folder has the same effect.
+# Un curso de esta lista no se publica aunque su carpeta siga existiendo, y Offlined deja de servirlo a quien
+# lo tuviera instalado (solo puede quitarlo). Borrar la carpeta tiene el mismo efecto.
+#
+# - id: c.author.course
+#   lang: es
+#   reason: "Short reason shown in Offlined · Motivo breve que se ve en Offlined"
+[]

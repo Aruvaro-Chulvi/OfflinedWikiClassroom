@@ -1,0 +1,68 @@
+/* WikiAula — textos y bancos de gen/sos9.js (Desarrollo sostenible, Grado 9), en español. */
+"use strict";
+(function () {
+const G = window.WA.I18N.es.gen;
+const S = G.sos9 = G.sos9 || {};
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const bank = (q, cats, why, items) => ({ q, cats, why, items, find: null });
+const n = x => String(x).replace(".", ",");
+const m = x => x.toLocaleString("es-ES").replace(/\./g, " ");
+Object.assign(S, {
+  transicion: bank(x => `${cap(x)}: ¿qué pata de la transición energética es?`, ["Producir con renovables", "Electrificar", "Ahorrar y eficiencia"],
+    ["Generar electricidad limpia.", "Pasar a electricidad usos que queman combustibles.", "Consumir menos energía."],
+    [["un parque eólico", 0], ["placas solares en un polideportivo", 0], ["cambiar la caldera de gas por una bomba de calor", 1], ["autobuses eléctricos", 1], ["hornos eléctricos en una fábrica", 1],
+     ["aislar las viviendas", 2], ["bombillas LED en el alumbrado público", 2], ["bajar la calefacción un grado", 2]]),
+  almacen: bank(x => `${cap(x)}: ¿qué forma de almacenar energía es?`, ["Bombeo hidráulico", "Baterías", "Hidrógeno verde", "Sales fundidas"],
+    ["Subir agua a un embalse.", "Química, rápida, horas.", "Electrólisis con renovables.", "Calor de una central solar."],
+    [["subir agua a un embalse superior cuando sobra electricidad", 0], ["el mayor almacenamiento del mundo hoy", 0], ["la batería de un coche eléctrico", 1], ["baterías de litio en un parque solar", 1],
+     ["separar el agua en hidrógeno y oxígeno con energía solar", 2], ["combustible para camiones y barcos", 2], ["guardar calor de día para producir de noche en Gemasolar", 3]]),
+  cadena: bank(x => `${cap(x)}: ¿moda rápida o moda sostenible?`, ["Moda rápida", "Moda sostenible"], ["Mucho, barato, poco uso.", "Menos, duradero, justo."],
+    [["colecciones nuevas cada dos semanas", 0], ["camisetas a 3 € que duran un verano", 0], ["comprar ropa por impulso", 0], ["comprar de segunda mano", 1], ["reparar unos vaqueros", 1],
+     ["marcas que dicen dónde y cómo fabrican", 1], ["intercambiar ropa con amigos", 1], ["comercio justo", 1]]),
+  jerarquia: bank(x => `${cap(x)}: ¿qué nivel de la jerarquía de residuos es?`, ["Prevención", "Reutilización", "Reciclaje", "Valorización energética", "Eliminación"],
+    ["No generar.", "Volver a usar.", "Fabricar algo nuevo con el material.", "Incinerar con energía.", "Vertedero."],
+    [["comprar a granel sin envase", 0], ["no imprimir lo que no hace falta", 0], ["lavar y rellenar botellas de vidrio", 1], ["arreglar un mueble para darle otro uso", 1],
+     ["fundir latas para hacer nuevas", 2], ["hacer compost con los restos orgánicos", 2], ["quemar basura para producir electricidad", 3], ["enterrar basura en un vertedero", 4]]),
+  justicia: bank(x => `${cap(x)}: ¿verdadero o falso?`, ["Verdadero", "Falso"], ["Coincide con los datos.", "No es correcto."],
+    [["el 10 % más rico emite cerca de la mitad del CO₂", 0], ["los países que menos emiten suelen sufrir más", 0], ["un estadounidense emite mucho más que un nigeriano", 0],
+     ["todos los países han emitido lo mismo en la historia", 1], ["el cambio climático afecta igual a ricos y pobres", 1], ["las islas del Pacífico son grandes emisoras", 1]]),
+  genero: bank(x => `«${x}». ¿Quién lo hizo o lo defendió?`, ["Wangari Maathai", "Vandana Shiva", "Rachel Carson", "Greta Thunberg"],
+    ["Cinturón Verde, Kenia.", "Semillas tradicionales, India.", "Primavera silenciosa.", "Huelga escolar por el clima."],
+    [["Plantó más de 30 millones de árboles con grupos de mujeres", 0], ["Primera mujer africana Nobel de la Paz", 0], ["Defiende las semillas campesinas frente a las patentes", 1],
+     ["Denunció el daño de los pesticidas en 1962", 2], ["Su libro ayudó a prohibir el DDT", 2], ["Inició una huelga escolar por el clima en 2018", 3]]),
+  salud: bank(x => `${cap(x)}: ¿qué riesgo ambiental para la salud es?`, ["Contaminación del aire", "Ruido", "Calor extremo", "Zoonosis"],
+    ["PM2,5, NO₂, ozono.", "Estrés, insomnio.", "Golpes de calor.", "De animales a humanos."],
+    [["partículas finas de los tubos de escape", 0], ["NO₂ junto a una avenida con mucho tráfico", 0], ["ozono en tardes de verano", 0], ["vivir junto al aeropuerto", 1],
+     ["obras y tráfico que no dejan dormir", 1], ["noches tropicales sin descanso", 2], ["olas de calor que afectan a los mayores", 2], ["un virus que pasa de murciélagos a personas", 3],
+     ["enfermedades que transmite el mosquito tigre", 3]]),
+  acuerdo: bank(x => `${cap(x)}: ¿qué acuerdo es?`, ["Protocolo de Montreal", "Protocolo de Kioto", "Acuerdo de París", "Marco Kunming-Montreal"],
+    ["1987, ozono.", "1997, primeros compromisos de reducción.", "2015, 1,5–2 °C.", "2022, biodiversidad 30×30."],
+    [["prohibió los CFC", 0], ["protegió la capa de ozono", 0], ["primeros compromisos obligatorios para países desarrollados", 1], ["firmado en Japón en 1997", 1],
+     ["mantener el calentamiento muy por debajo de 2 °C", 2], ["cada país presenta su plan y lo revisa cada cinco años", 2], ["proteger el 30 % de la tierra y el mar en 2030", 3]]),
+  politica: bank(x => `${cap(x)}: ¿qué herramienta de política ambiental es?`, ["Ley o norma", "Mercado de emisiones", "Impuesto", "Evaluación de impacto", "Ayuda o subvención"],
+    ["Obliga o prohíbe.", "Comprar derechos por tonelada de CO₂.", "Pagar más por contaminar.", "Estudiar antes de autorizar una obra.", "Dinero para lo sostenible."],
+    [["prohibir los plásticos de un solo uso", 0], ["zonas de bajas emisiones obligatorias", 0], ["una acería compra derechos por cada tonelada de CO₂", 1], ["una tasa sobre los billetes de avión", 2],
+     ["un impuesto a los envases no reutilizables", 2], ["estudiar el efecto de una autopista antes de aprobarla", 3], ["ayudas para poner placas solares", 4], ["subvenciones para rehabilitar viviendas", 4]]),
+  cu_q: (t, r) => `Un país genera ${m(t)} TWh de electricidad, de los que ${n(r)} TWh son renovables. ¿Qué porcentaje es renovable?`,
+  cu_s: (t, r, p) => `${n(r)} ÷ ${m(t)} × 100 = <b>${p} %</b>`,
+  so_q1: k => `¿Cuántos kWh al año produce en España una instalación de ${k} kWp (1 kWp ≈ 1500 kWh/año)?`,
+  so_s1: (k, e) => `${k} × 1500 = <b>${m(e)}</b> kWh`,
+  so_q2: (k, u) => `Una instalación de ${k} kWp permite autoconsumir ${m(u)} kWh al año. A 0,15 €/kWh, ¿cuántos euros ahorra al año?`,
+  so_s2: (u, a) => `${m(u)} × 0,15 = <b>${n(a)}</b> €`,
+  am_q: (c, a) => `Una instalación solar cuesta ${m(c)} € y ahorra ${a} € al año. ¿En cuántos años se amortiza?`,
+  am_s: (c, a, y) => `${m(c)} ÷ ${a} = <b>${y}</b> años`,
+  ti_q: h => `Si la huella ecológica es de ${n(h)} gha por persona y la biocapacidad de 1,6 gha, ¿cuántas Tierras harían falta?`,
+  ti_s: (h, k) => `${n(h)} ÷ 1,6 = <b>${n(k)}</b> Tierras`,
+  de_q: h => `Con una huella de ${n(h)} gha por persona (biocapacidad 1,6), ¿en qué día del año (aprox.) se agotarían los recursos del año? (365 × 1,6 ÷ huella)`,
+  de_s: (h, d) => `365 × 1,6 ÷ ${n(h)} ≈ <b>${d}</b>`,
+  re_q: (t, r) => `Una ciudad genera ${m(t)} t de residuos y recicla ${m(r)} t. ¿Cuál es su tasa de reciclaje?`,
+  re_s: (t, r, p) => `${m(r)} ÷ ${m(t)} × 100 = <b>${p} %</b>${p >= 55 ? " (cumple el 55 %)" : " (por debajo del 55 %)"}`,
+  paises: [["EE. UU.", 15], ["Arabia Saudí", 18], ["Australia", 15], ["China", 8], ["España", 5], ["la India", 2], ["Brasil", 2.2], ["Nigeria", 0.6], ["Kenia", 0.4]],
+  ve_q: (a, b) => `En ${a[0]} se emiten unas ${n(a[1])} t de CO₂ por persona al año y en ${b[0]} unas ${n(b[1])} t. ¿Cuántas veces más? (redondea a una décima)`,
+  ve_s: (a, b, v) => `${n(a[1])} ÷ ${n(b[1])} ≈ <b>${n(v)}</b> veces`,
+  va_q: (a, b) => `Un indicador pasa de ${n(a)} a ${n(b)}. ¿Cuál es la tasa de variación en %?`,
+  va_s: (a, b, p) => `(${n(b)} − ${n(a)}) ÷ ${n(a)} × 100 = <b>${p} %</b>`,
+  pc_q: (t, h) => `Un país emite ${t} Mt de CO₂ y tiene ${h} millones de habitantes. ¿Cuántas toneladas por persona?`,
+  pc_s: (t, h, r) => `${t} ÷ ${h} = <b>${r}</b> t por persona`,
+});
+})();

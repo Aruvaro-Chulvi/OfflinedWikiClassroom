@@ -1,0 +1,138 @@
+/* WikiAula — textos de gen/mat11u12.js (Grado 11 · Unidad 12: Estadística y probabilidad), en español. */
+"use strict";
+(function () {
+const G = window.WA.I18N.es.gen;
+const S = G.m11 = G.m11 || {};
+Object.assign(S, {
+  es_rg_q: (xb, yb, sx2, sxy) => `De una variable bidimensional se sabe que x̄ = ${xb}, ȳ = ${yb}, la varianza de x es s<sub>x</sub>² = ${sx2} y la covarianza es s<sub>xy</sub> = ${sxy}. Calcula la recta de regresión de y sobre x, y = mx + n.`,
+  es_rg_s: (sxy, sx2, m, sub, n) => `Pendiente: m = s<sub>xy</sub>/s<sub>x</sub>² = ${sxy}/${sx2} = <b>${m}</b>. La recta pasa por (x̄, ȳ): n = ȳ − m·x̄ = ${sub} = <b>${n}</b>.`,
+  es_est_q: (xb, yb, sx2, sxy, x0) => `De una variable bidimensional se sabe que x̄ = ${xb}, ȳ = ${yb}, s<sub>x</sub>² = ${sx2} y s<sub>xy</sub> = ${sxy}. Usa la recta de regresión de y sobre x para estimar el valor de y cuando x = ${x0}.`,
+  es_est_s: (m, yb, xb, x0, y0, sub) => `m = s<sub>xy</sub>/s<sub>x</sub>² = ${m}. La recta es y − ${yb} = ${m}(x − ${xb}); para x = ${x0}: y = ${sub} = <b>${y0}</b>.`,
+  es_cov_q: (xs, ys) => `Calcula la covarianza de los datos x: ${xs}; y: ${ys} (cada x con la y que ocupa su misma posición). Redondea a las centésimas.`,
+  es_cov_s: (mx, my, mxy, c, sg, sub, ex) => `x̄ ${ex ? "=" : "≈"} ${mx}, ȳ ${ex ? "=" : "≈"} ${my} y la media de los productos x·y ${ex ? "es" : "es ≈"} ${mxy}. s<sub>xy</sub> = (media de x·y) − x̄·ȳ ${ex ? "=" : "≈"} ${sub} ≈ <b>${c}</b>. ${sg > 0 ? "Es positiva: cuando x aumenta, y tiende a aumentar." : sg < 0 ? "Es negativa: cuando x aumenta, y tiende a disminuir." : "Es 0: no hay tendencia lineal."}`,
+  es_co_q: r => `El coeficiente de correlación lineal de dos variables es r = ${r}. ¿Cómo es la relación entre ellas?`,
+  es_co_o: ["Fuerte y positiva", "Débil y positiva", "Prácticamente no hay relación lineal", "Débil y negativa", "Fuerte y negativa"],
+  es_co_s: [
+    r => `r = ${r} está entre 0,7 y 1: los puntos están casi alineados en una recta creciente. Correlación <b>fuerte y positiva</b>.`,
+    r => `r = ${r} está entre 0,3 y 0,7: tendencia creciente con bastante dispersión. Correlación <b>débil y positiva</b>.`,
+    r => `r = ${r} está entre −0,3 y 0,3: <b>prácticamente no hay relación lineal</b> (aunque podría haber otro tipo de relación).`,
+    r => `r = ${r} está entre −0,7 y −0,3: tendencia decreciente con bastante dispersión. Correlación <b>débil y negativa</b>.`,
+    r => `r = ${r} está entre −1 y −0,7: los puntos están casi alineados en una recta decreciente. Correlación <b>fuerte y negativa</b>.`,
+  ],
+  es_di_q: (xs, ps) => `Una variable aleatoria X toma los valores x<sub>i</sub> = ${xs} con probabilidades p<sub>i</sub> = ${ps}. Calcula p y la media μ de X.`,
+  es_di_s: (p, terms, mu) => `Las probabilidades suman 1, así que <b>p = ${p}</b>. La media es μ = Σ x<sub>i</sub>·p<sub>i</sub> = ${terms} = <b>${mu}</b>.`,
+  es_bi_q: (n, p, k) => `X sigue una distribución binomial B(${n}; ${p}). Calcula P(X = ${k}) (redondea a 4 decimales).`,
+  es_bi_s: (n, k, c, p, q, nk, r) => `P(X = k) = C(n, k)·p<sup>k</sup>·q<sup>n−k</sup>, con q = 1 − p = ${q}: P(X = ${k}) = ${c} · ${p}<sup>${k}</sup> · ${q}<sup>${nk}</sup> ≈ <b>${r}</b>.`,
+  es_bi1_q: (n, p) => `Un experimento con probabilidad de éxito ${p} se repite ${n} veces de forma independiente. ¿Cuál es la probabilidad de obtener al menos un éxito? (Redondea a 4 decimales.)`,
+  es_bi1_s: (q, n, r) => `Es más fácil usar el suceso contrario («ningún éxito»): P(X ≥ 1) = 1 − P(X = 0) = 1 − ${q}<sup>${n}</sup> ≈ <b>${r}</b>.`,
+  es_bi2_q: (n, p, ge) => `X sigue una distribución binomial B(${n}; ${p}). Calcula ${ge ? "P(X ≥ 2), la probabilidad de obtener al menos dos éxitos" : "P(X ≤ 1), la probabilidad de obtener como mucho un éxito"} (redondea a 4 decimales).`,
+  es_bi2_s: (n, p, q, n1, p0, p1, le, ge, r) => `«Como mucho uno» es 0 o 1 éxitos: P(X ≤ 1) = P(X = 0) + P(X = 1) = ${q}<sup>${n}</sup> + ${n} · ${p} · ${q}<sup>${n1}</sup> ≈ ${p0} + ${p1} ≈ ${ge ? le : `<b>${le}</b>`}` + (ge ? `. «Al menos dos» es su contrario: P(X ≥ 2) = 1 − P(X ≤ 1) ≈ 1 − ${le} = <b>${r}</b>.` : "."),
+  VA: {
+    q: (xs, ps) => `Una variable aleatoria X toma los valores x<sub>i</sub> = ${xs} con probabilidades p<sub>i</sub> = ${ps}. Calcula su media μ, su varianza σ² y su desviación típica σ (redondea σ² y σ a las centésimas).`,
+    s: (t1, mu, t2, m2, v, sd, v2) => `μ = Σ x<sub>i</sub>·p<sub>i</sub> = ${t1} = <b>${mu}</b>. Para la varianza, primero Σ x<sub>i</sub>²·p<sub>i</sub> = ${t2} = ${m2}, y después se resta μ² (es lo que más se olvida): σ² = ${m2} − ${mu}² = ${v2 ? `${v} ≈ <b>${v2}</b>` : `<b>${v}</b>`}. Por último, σ = √σ² ≈ <b>${sd}</b>.`,
+    ev: [["un 6", 1], ["un 5 o un 6", 2], ["un número par", 3], ["un número primo", 3], ["un 1 o un 2", 2], ["un múltiplo de 3", 2], ["un 1", 1]],
+    jq: (c, g, ev) => `Un juego cuesta ${c} € por partida: se lanza un dado y, si sale ${ev}, se cobran ${g} €. ¿Cuál es la ganancia media del jugador por partida, en euros? (Si pierde, escríbela negativa; redondea a los céntimos.)`,
+    js: (g, P, c, gp, m, sg, ex) => `Ganancia media = premio · P(ganar) − coste = ${g} · ${P} − ${c} ${ex ? "=" : "≈"} ${gp} − ${c} ${ex ? "=" : "≈"} <b>${m} €</b>. ` + (sg > 0 ? "Es positiva: el juego favorece al jugador." : sg < 0 ? "Es negativa: a la larga el jugador pierde, el juego no es justo." : "Es 0: el juego es <b>justo</b>."),
+    jq2: (c, ev) => `Un juego cuesta ${c} € por partida: se lanza un dado y, si sale ${ev}, se cobra un premio. ¿De cuántos euros debe ser el premio para que el juego sea justo?`,
+    js2: (P, c, g) => `Justo significa ganancia media 0: premio · ${P} − ${c} = 0, así que premio = ${c} : ${P} = <b>${g} €</b>.`,
+  },
+  CR2: {
+    f: ["fuerte", "débil", "prácticamente nula"],
+    q0: (sxy, sx, sy) => `En una variable bidimensional, la covarianza es s<sub>xy</sub> = ${sxy} y las desviaciones típicas son s<sub>x</sub> = ${sx} y s<sub>y</sub> = ${sy}. Calcula el coeficiente de correlación r y el de determinación R² (redondea a las centésimas).`,
+    s0: (sxy, sx, sy, pr, r, f, pos, r2, pc) => `r = s<sub>xy</sub>/(s<sub>x</sub>·s<sub>y</sub>) = ${sxy}/(${sx} · ${sy}) = ${sxy}/${pr} ≈ <b>${r}</b>: correlación ${f}${f === "prácticamente nula" ? "" : pos ? " y positiva" : " y negativa"}. R² = r² ≈ <b>${r2}</b>: la recta explica alrededor de un ${pc} % de la variación de y.`,
+    q1: (xs, ys) => `Calcula el coeficiente de correlación r de los datos x: ${xs}; y: ${ys} (cada x con la y de su misma posición). Redondea a las centésimas.`,
+    s1: (mx, my, mx2, vx, my2, vy, mxy, c, pmx, pmy, r, f, pos) => `Medias: x̄ = ${mx}, ȳ = ${my}. Varianzas: s<sub>x</sub>² = (media de x²) − x̄² = ${mx2} − ${pmx}² = ${vx}; s<sub>y</sub>² = ${my2} − ${pmy}² = ${vy}. Covarianza: s<sub>xy</sub> = (media de x·y) − x̄·ȳ = ${mxy} − ${pmx} · ${pmy} = ${c}. r = s<sub>xy</sub>/(s<sub>x</sub>·s<sub>y</sub>) = ${c}/√(${vx} · ${vy}) ≈ <b>${r}</b>: correlación ${f}${f === "prácticamente nula" ? "" : pos ? " y positiva" : " y negativa"}.`,
+  },
+  MU: {
+    estratos: [["En un instituto hay", ["alumnos de 1.º", "de 2.º", "de 3.º"]], ["En una fábrica trabajan", ["en el turno de mañana", "en el de tarde", "en el de noche"]], ["Un club tiene", ["socios infantiles", "juveniles", "adultos"]]],
+    q0: (ctx, parts, n) => `${ctx} ${parts.join(parts.length === 3 ? ", " : " y ").replace(/, ([^,]*)$/, " y $1")}. Se elige una muestra estratificada proporcional de ${n}. ¿Cuántos hay que tomar de cada grupo?`,
+    s0: (n, N, f, list) => `En total son ${N}, y la muestra de ${n} es ${n}/${N} = 1/${f} del total. Cada grupo aporta su parte, 1/${f} de los que tiene: <b>${list}</b>.`,
+    props: ["usan la bicicleta para ir a trabajar", "son zurdas", "tienen mascota", "han leído un libro el último mes", "hacen deporte cada semana"],
+    pers: "personas",
+    q1: (n, N, what, x) => `En una ciudad de ${N} habitantes se pregunta a ${n} personas elegidas al azar, y ${x} ${what}. Estima el porcentaje de habitantes que ${what} y cuántas personas son en toda la ciudad.`,
+    s1: (x, n, fr, pc, N, t) => `La proporción de la muestra es una estimación puntual de la de la población: ${x}/${n} = ${fr}, es decir, un <b>${pc} %</b>. En la ciudad: ${fr} · ${N} ≈ <b>${t}</b> personas (con otra muestra saldría algo distinto).`,
+    medias: [["los minutos que tardan en llegar al instituto", 5, 40, "min"], ["las horas que duermen", 6, 10, "h"], ["los libros que leyeron el año pasado", 0, 12, "libros"], ["la estatura, en centímetros", 150, 185, "cm"]],
+    q2: (what, vals, u) => `En un instituto se quiere conocer la media de una variable: ${what}. Se pregunta a cinco alumnos elegidos al azar, que responden ${vals}. ¿Qué valor estimas para la media de todo el instituto?`,
+    s2: (sum, s, m, u) => `La media de la muestra es la estimación puntual de la media de la población: x̄ = (${sum})/5 = ${s}/5 = <b>${m} ${u}</b>.`,
+  },
+  es_bims_q: (n, p) => `Calcula la media μ y la desviación típica σ de una distribución binomial B(${n}; ${p}) (redondea σ a las centésimas).`,
+  es_bims_s: (n, p, q, mu, v, sd) => `En la binomial, μ = n·p = ${n} · ${p} = <b>${mu}</b> y σ = √(n·p·q) = √${v} ≈ <b>${sd}</b>.`,
+  es_no_z_q: (mu, sd, a) => `X sigue una distribución normal N(${mu}; ${sd}). Tipifica el valor x = ${a}: ¿cuánto vale z?`,
+  es_no_z_s: (a, mu, sd, z) => `z = (x − μ)/σ = (${a} − ${mu})/${sd} = <b>${z}</b>: el valor está ${z} desviaciones típicas por encima de la media.`,
+  es_no_q: [
+    (mu, sd, a, b, z, ph) => `X sigue una distribución normal N(${mu}; ${sd}). Calcula P(X ≤ ${a}). (Dato: P(Z ≤ ${z}) = ${ph}.)`,
+    (mu, sd, a, b, z, ph) => `X sigue una distribución normal N(${mu}; ${sd}). Calcula P(X ≥ ${a}). (Dato: P(Z ≤ ${z}) = ${ph}.)`,
+    (mu, sd, a, b, z, ph) => `X sigue una distribución normal N(${mu}; ${sd}). Calcula P(X ≤ ${b}). (Dato: P(Z ≤ ${z}) = ${ph}.)`,
+    (mu, sd, a, b, z, ph) => `X sigue una distribución normal N(${mu}; ${sd}). Calcula P(${b} ≤ X ≤ ${a}). (Dato: P(Z ≤ ${z}) = ${ph}.)`,
+  ],
+  es_no_s: [
+    (a, b, mu, sd, z, ph, r) => `Tipificamos: z = (${a} − ${mu})/${sd} = ${z}. P(X ≤ ${a}) = P(Z ≤ ${z}) = <b>${r}</b>.`,
+    (a, b, mu, sd, z, ph, r) => `Tipificamos: z = (${a} − ${mu})/${sd} = ${z}. P(X ≥ ${a}) = 1 − P(Z ≤ ${z}) = 1 − ${ph} = <b>${r}</b>.`,
+    (a, b, mu, sd, z, ph, r) => `Tipificamos: z = (${b} − ${mu})/${sd} = −${z}. Por la simetría de la campana, P(Z ≤ −${z}) = P(Z ≥ ${z}) = 1 − ${ph} = <b>${r}</b>.`,
+    (a, b, mu, sd, z, ph, r) => `Tipificando, el intervalo es −${z} ≤ Z ≤ ${z}. Por simetría, P = P(Z ≤ ${z}) − (1 − P(Z ≤ ${z})) = 2 · ${ph} − 1 = <b>${r}</b>.`,
+  ],
+});
+// ═════ Técnicas de recuento y probabilidad (textos de los generadores añadidos) ═════
+// m11.es.recuento
+S.RC = {
+  sit: [
+    m => `En una final corren ${m} atletas. Hay que contar de cuántas formas pueden repartirse el oro, la plata y el bronce.`,
+    (m, n) => `Un código PIN tiene ${n} cifras, que se pueden repetir. Hay que contar cuántos códigos distintos hay.`,
+    m => `Hay que contar de cuántas formas se pueden colocar ${m} libros distintos en una balda.`,
+    (m, n) => `En una clase de ${m} alumnos hay que elegir ${n} delegados, todos con el mismo cargo. Hay que contar cuántos grupos distintos se pueden elegir.`,
+    m => `${m} amigos se saludan dándose la mano, una vez cada pareja. Hay que contar cuántos apretones de manos hay.`,
+    (m, n) => `Hay que contar cuántas «palabras» de ${n} letras distintas (tengan sentido o no) se forman con ${m} letras.`,
+    m => `Hay que contar cuántas banderas de tres franjas horizontales, de colores distintos, se pueden hacer con ${m} colores.`,
+    (m, n) => `En una quiniela de ${n} partidos se marca 1, X o 2 en cada uno. Hay que contar cuántas quinielas distintas hay.`,
+    m => `En una clase de ${m} alumnos se elige un delegado y un subdelegado. Hay que contar de cuántas formas se puede hacer.`,
+    m => `Una heladería tiene ${m} sabores y pides una copa con 2 bolas de sabores distintos. Hay que contar cuántas copas diferentes puedes pedir.`,
+  ],
+  tipo_q: s => `${s} ¿Qué se usa para contarlo?`,
+  tipos: ["Variaciones", "Variaciones con repetición", "Permutaciones", "Combinaciones"],
+  cuantos: "¿Cuántos son?",
+  tipo_s: ["No entran todos, <b>importa el orden</b> y no se repiten: <b>variaciones</b>.", "Importa el orden y los elementos <b>se pueden repetir</b>: <b>variaciones con repetición</b>.",
+    "Entran <b>todos</b> los elementos y solo cambia su orden: <b>permutaciones</b>.", "No entran todos y <b>no importa el orden</b> (es un grupo): <b>combinaciones</b>."],
+  cuenta: (k, m, n, r) => [`V<sub>${m},${n}</sub> = ${Array.from({ length: n }, (_, i) => m - i).join(" · ")} = <b>${r}</b>.`, `VR<sub>${m},${n}</sub> = ${m}<sup>${n}</sup> = <b>${r}</b>.`,
+    `P<sub>${m}</sub> = ${m}! = <b>${r}</b>.`, `C<sub>${m},${n}</sub> = (${Array.from({ length: n }, (_, i) => m - i).join(" · ")}) / ${n}! = <b>${r}</b>.`][k],
+  comb_q: (m, n) => `¿Cuánto vale el número combinatorio C(${m}, ${n})?`,
+  comb_s: (m, n, n2, r, sym) => `${sym ? `Por la simetría, C(${m}, ${n}) = C(${m}, ${m - n}). ` : ""}C(${m}, ${n2}) = (${Array.from({ length: n2 }, (_, i) => m - i).join(" · ")}) / ${n2}! = <b>${r}</b>.`,
+  bin1_q: (n, k) => `¿Cuál es el coeficiente de x<sup>${k}</sup> en el desarrollo de (1 + x)<sup>${n}</sup>?`,
+  bin1_s: (n, k, row, r) => `Por el binomio de Newton, el término de x<sup>${k}</sup> es C(${n}, ${k})·x<sup>${k}</sup>. Fila ${n} del triángulo de Pascal: ${row}. El coeficiente es <b>${r}</b>.`,
+  binab_q: (n, p, k) => `¿Cuál es el coeficiente del término a${p === 1 ? "" : `<sup>${p}</sup>`}b${k === 1 ? "" : `<sup>${k}</sup>`} en el desarrollo de (a + b)<sup>${n}</sup>?`,
+  binab_s: (n, k, r) => `En (a + b)<sup>${n}</sup>, el término con b${k === 1 ? "" : `<sup>${k}</sup>`} es C(${n}, ${k})·a${n - k === 1 ? "" : `<sup>${n - k}</sup>`}b${k === 1 ? "" : `<sup>${k}</sup>`}: el coeficiente es C(${n}, ${k}) = <b>${r}</b>.`,
+  // [situación, etapas]
+  // [situación, etapas, qué se cuenta] («combinaciones» es aquí un nombre técnico con otra fórmula: no se usa)
+  etapas: [["Un menú del día se compone de un primero, un segundo y un postre", ["primeros", "segundos", "postres"], "¿Cuántos menús distintos hay?"], ["Para vestirte eliges una camiseta, un pantalón y unas zapatillas", ["camisetas", "pantalones", "pares de zapatillas"], "¿De cuántas formas distintas puedes vestirte?"],
+    ["Una pizza se pide eligiendo masa, salsa e ingrediente principal", ["masas", "salsas", "ingredientes"], "¿Cuántas pizzas distintas se pueden pedir?"], ["Un viaje consta de ir en tren o autobús, alojarse en un hotel y hacer una excursión", ["formas de viajar", "hoteles", "excursiones"], "¿Cuántos viajes distintos hay?"]],
+  mult_q: (w, list, que) => `${w}. Hay ${list.slice(0, -1).join(", ")} y ${list[list.length - 1]}. ${que}`,
+  mult_s: (p, r) => `Principio de multiplicación: cada elección de una etapa se combina con todas las de las siguientes (es un diagrama de árbol). ${p} = <b>${r}</b>.`,
+};
+
+// m11.es.laplace
+S.PL = {
+  ev: { mayor: k => `un número mayor que ${k}`, menor: k => `un número menor que ${k}`, par: "un número par", impar: "un número impar", mult3: "un múltiplo de 3", primo: "un número primo", div6: "un divisor de 6" },
+  dado_q: t => `Se lanza un dado. ¿Cuál es la probabilidad de sacar ${t}? (Escríbela como fracción a/b).`,
+  dado_s: (fav, n, r, raw) => `Los 6 resultados son igual de probables: regla de Laplace. Casos favorables: ${fav} (${n}). P = ${raw === r ? "" : raw + " = "}<b>${r}</b>.`,
+  union_q: (a, b, i) => `Si P(A) = ${a}, P(B) = ${b} y P(A ∩ B) = ${i}, ¿cuánto vale P(A ∪ B)?`,
+  union_s: (a, b, i, u) => `P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = ${a} + ${b} − ${i} = <b>${u}</b>. Se resta la intersección porque al sumar se cuenta dos veces.`,
+  inter_q: (a, b, u) => `Si P(A) = ${a}, P(B) = ${b} y P(A ∪ B) = ${u}, ¿cuánto vale P(A ∩ B)?`,
+  inter_s: (a, b, u, i) => `De P(A ∪ B) = P(A) + P(B) − P(A ∩ B): P(A ∩ B) = ${a} + ${b} − ${u} = <b>${i}</b>.`,
+  almenos_q: n => `Se lanza un dado ${n} veces. ¿Qué probabilidad hay de sacar al menos un 6? (Cuatro decimales).`,
+  almenos_s: (n, q, r) => `Es más fácil el contrario, «ningún 6»: (5/6)<sup>${n}</sup> ≈ ${q}. Por tanto, P(al menos un 6) = 1 − ${q} ≈ <b>${r}</b>.`,
+  suma_q: s => `Se lanzan dos dados. ¿Cuál es la probabilidad de que la suma sea ${s}? (Fracción a/b).`,
+  suma_s: (s, cases, f, r, raw) => `Hay 6 · 6 = 36 resultados igual de probables. La suma ${s} sale en ${f}: ${cases}. P = ${raw === r ? "" : raw + " = "}<b>${r}</b>.`,
+  bolsa_q: (r, b) => `Una bolsa tiene ${r} bolas rojas y ${b} azules. Se sacan 2 a la vez. ¿Cuál es la probabilidad de que las dos sean rojas? (Fracción a/b).`,
+  bolsa_s: (r, b, f, p, x) => `Casos posibles: C(${r + b}, 2) = ${p} parejas; favorables: C(${r}, 2) = ${f}. P = ${`${f}/${p}` === x ? "" : `${f}/${p} = `}<b>${x}</b>.`,
+  comite_q: (a, b) => `En un grupo de ${a} chicas y ${b} chicos se eligen 3 personas al azar. ¿Cuál es la probabilidad de que sean tres chicas? (Fracción a/b).`,
+  comite_s: (a, b, f, p, x) => `Casos posibles: C(${a + b}, 3) = ${p}; favorables: C(${a}, 3) = ${f}. P = ${`${f}/${p}` === x ? "" : `${f}/${p} = `}<b>${x}</b>.`,
+  op_q: (a, b) => `Se lanza un dado. A = «sacar ${a}» y B = «sacar ${b}». ¿Cuánto vale P(A ∪ B)? (Fracción a/b).`,
+  op_s: (A, B, U, n, r, I) => `A = {${A}}, B = {${B}}. A ∪ B = {${U}} (A ∩ B = {${I}}). P(A ∪ B) = ${`${n}/6` === r ? "" : `${n}/6 = `}<b>${r}</b>.`.replace("{∅}", "∅"),
+  incomp_q: (a, b) => `Se lanza un dado. A = «sacar ${a}» y B = «sacar ${b}». ¿Son A y B incompatibles?`,
+  sino: ["Sí", "No"],
+  incomp_s: (A, B, I) => I ? `A = {${A}} y B = {${B}} tienen resultados en común: A ∩ B = {${I}}. Pueden ocurrir a la vez: <b>no</b> son incompatibles.` : `A = {${A}} y B = {${B}} no tienen ningún resultado en común: A ∩ B = ∅. <b>Sí</b> son incompatibles.`,
+  objs: [["una chincheta", "cae con la punta hacia arriba"], ["un tapón de botella", "cae boca abajo"], ["un vaso de plástico", "cae de lado"]],
+  frec_q: (o, N, ev, f) => `Se lanza ${o} ${N} veces y ${f} veces ${ev}. Estima la probabilidad de ese suceso (tres decimales).`,
+  frec_s: (f, N, h) => `El objeto no es simétrico: no podemos suponer que los resultados sean igual de probables (no vale Laplace), así que estimamos con la frecuencia relativa, que se estabiliza al repetir muchas veces. P ≈ ${f}/${N} = <b>${h}</b>.`,
+};
+// ── fin: ═════ Técnicas de recuento y probabilidad (textos de los generadores añadidos) ═════
+})();

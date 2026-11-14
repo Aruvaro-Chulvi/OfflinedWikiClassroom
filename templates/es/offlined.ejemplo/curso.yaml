@@ -1,0 +1,24 @@
+# Plantilla de un curso de la comunidad de WikiAula.
+# Cópiala en community/<idioma>/<tu_usuario>.<tu_curso>/ y cambia el id: «c.» + el nombre de la carpeta.
+id: c.offlined.ejemplo
+titulo: Trucos de cálculo mental
+titulo_corto: Cálculo mental
+grado: 5                        # 1–12 (edad aproximada: grado + 5 años)
+asignatura: Matemáticas
+autor: Offlined                 # tu nombre o el nombre con el que quieres firmar
+github: Aruvaro-Chulvi          # tu usuario de GitHub (opcional)
+licencia: CC BY-SA 4.0          # CC BY-SA 4.0 · CC BY 4.0 · CC0 1.0
+descripcion: >-
+  Dos trucos para multiplicar de cabeza en un momento: por 11 y por 5. Es la
+  plantilla de ejemplo para quien quiera escribir su propio curso de WikiAula.
+presentacion: |
+  Multiplicar de cabeza es más fácil de lo que parece si conoces unos pocos
+  **trucos**. En este curso aprenderás dos: multiplicar por 11 un número de dos
+  cifras y multiplicar por 5 cualquier número par. Después, practica con
+  ejercicios que cambian cada vez.
+fuentes:
+  - "Arthur Benjamin y Michael Shermer, *Secrets of Mental Math*, 2006."
+unidades:
+  - titulo: Multiplicar rápido
+    carpeta: u1-multiplicar
+    lecciones: [por-11, por-5]

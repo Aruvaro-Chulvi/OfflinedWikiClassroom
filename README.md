@@ -50,10 +50,23 @@ without giving the answer away. If you already have the file, use *I already hav
 The ZIM also opens in [Kiwix](https://kiwix.org) (desktop, Android, iOS, kiwix-serve). There, progress is
 kept in the browser and the AI features are not available.
 
+### Community courses
+
+Anyone can write a WikiAula course — chess, first aid, your region's history… — and share it here. Courses
+arrive as pull requests in [`community/`](community), are checked automatically (structure, licence, the
+code of their exercise generators, a preview ZIM) and **reviewed by hand by the maintainer**. Only after a
+course is merged is it built with the official engine and listed in `community.json` of the
+[`community` release](../../releases/tag/community), which is the only list Offlined reads (*WikiAula →
+Community*). Every course gets progress per profile, My WikiAlbum cards and Michael Encartha's help, with
+nothing to program. A course can be withdrawn later; Offlined then stops serving it.
+
+**How to write and share one: [CONTRIBUTING.md](CONTRIBUTING.md)** · the build kit is in [`kit/`](kit)
+(MIT) · templates in [`templates/`](templates).
+
 ### Report a mistake
 
 Found a wrong answer, a typo or a broken figure? [Open an issue](../../issues/new/choose) — one lesson per
-report, please.
+report, please. For a community course, use *Problem with a community course*.
 
 ### Credits and license
 
@@ -105,10 +118,24 @@ o un error sin darte la respuesta. Si ya tienes el archivo, usa *Ya lo tengo: el
 El ZIM también se abre en [Kiwix](https://kiwix.org) (escritorio, Android, iOS, kiwix-serve). Ahí el
 progreso se guarda en el navegador y no hay funciones de IA.
 
+### Cursos de la comunidad
+
+Cualquiera puede escribir un curso de WikiAula —ajedrez, primeros auxilios, la historia de tu comarca…— y
+compartirlo aquí. Los cursos llegan como pull requests en [`community/`](community), se comprueban solos
+(estructura, licencia, el código de sus generadores de ejercicios, un ZIM de prueba) y **los revisa a mano
+el responsable del proyecto**. Solo cuando se acepta, el curso se compila con el motor oficial y se añade a
+`community.json` en la [release `community`](../../releases/tag/community), la única lista que lee Offlined
+(*WikiAula → Comunidad*). Cada curso tiene progreso por perfil, cartas de Mi WikiÁlbum y la ayuda de
+Michael Encartha, sin programar nada. Un curso se puede retirar más adelante; Offlined deja entonces de
+servirlo.
+
+**Cómo escribir y compartir uno: [CONTRIBUTING.es.md](CONTRIBUTING.es.md)** · el kit para compilar está en
+[`kit/`](kit) (MIT) · plantillas en [`templates/`](templates).
+
 ### Avisar de un error
 
 ¿Una respuesta mal, una errata o un dibujo roto? [Abre un aviso](../../issues/new/choose) — una lección por
-aviso, por favor.
+aviso, por favor. Para un curso de la comunidad, usa *Problema con un curso de la comunidad*.
 
 ### Créditos y licencia
 

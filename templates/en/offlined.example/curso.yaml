@@ -1,0 +1,24 @@
+# Template of a WikiAula community course.
+# Copy it to community/<lang>/<your_user>.<your_course>/ and change the id: «c.» + the folder name.
+id: c.offlined.example
+titulo: Mental maths tricks
+titulo_corto: Mental maths
+grado: 5                        # 1–12 (age ≈ grade + 5)
+asignatura: Mathematics
+autor: Offlined                 # your name, or the name you want to sign with
+github: Aruvaro-Chulvi          # your GitHub user (optional)
+licencia: CC BY-SA 4.0          # CC BY-SA 4.0 · CC BY 4.0 · CC0 1.0
+descripcion: >-
+  Two tricks to multiply in your head in no time: by 11 and by 5. It is the
+  example template for anyone who wants to write a WikiAula course.
+presentacion: |
+  Multiplying in your head is easier than it looks if you know a few
+  **tricks**. In this course you will learn two: multiplying a two-digit number
+  by 11 and multiplying any even number by 5. Then practise with exercises that
+  change every time.
+fuentes:
+  - "Arthur Benjamin and Michael Shermer, *Secrets of Mental Math*, 2006."
+unidades:
+  - titulo: Multiply fast
+    carpeta: u1-multiply
+    lecciones: [by-11, by-5]

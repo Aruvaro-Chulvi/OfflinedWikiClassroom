@@ -1,0 +1,43 @@
+name: "🚩 Problem with a community course / Problema con un curso de la comunidad"
+description: "A mistake, something inappropriate or content that shouldn't be there. / Un error, algo inapropiado o un contenido que no debería estar."
+title: "[Community] "
+labels: ["community course"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Community courses are written by other people and reviewed before they are published. If something got
+        through, tell us: the maintainer can fix it or withdraw the course, and Offlined stops serving it.
+        Los cursos de la comunidad los escriben otras personas y se revisan antes de publicarse. Si algo se ha
+        colado, cuéntanoslo: se puede corregir o retirar el curso, y Offlined deja de servirlo.
+  - type: input
+    id: course
+    attributes:
+      label: "Course / Curso"
+      description: "Its id (c.author.course) or its title. / Su id (c.autor.curso) o su título."
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: "What happens / Qué pasa"
+      options:
+        - "A mistake (wrong answer, wrong fact, typo) / Un error (respuesta, dato, errata)"
+        - "Inappropriate or offensive content / Contenido inapropiado u ofensivo"
+        - "False or misleading information / Información falsa o engañosa"
+        - "Copied without permission / Copiado sin permiso"
+        - "Something doesn't work / Algo no funciona"
+        - "Other / Otra cosa"
+    validations:
+      required: true
+  - type: input
+    id: lesson
+    attributes:
+      label: "Lesson (if any) / Lección (si la hay)"
+  - type: textarea
+    id: details
+    attributes:
+      label: "Details / Detalles"
+      description: "What did you see, and what should it say? / ¿Qué has visto y qué debería decir?"
+    validations:
+      required: true

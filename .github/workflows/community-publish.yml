@@ -1,0 +1,74 @@
+# Publishes the community courses after the maintainer merges a pull request.
+# Only commits on main trigger it, and only the maintainer can merge into main.
+#
+# build    compiles the new or changed courses with kit/ (the course's exercise
+#          generators run here) — read-only, no token in the checkout
+# publish  uploads the ZIMs and community.json to the «community» release — it
+#          has write permission but never runs the courses' code
+#
+# Offlined only offers what is in community.json. To withdraw a course, delete its
+# folder (or list it in community/retired.yaml with a reason): Offlined stops
+# serving it to everyone who had installed it.
+name: Publish community courses
+
+on:
+  push:
+    branches: [main]
+    paths: ["community/**"]
+  workflow_dispatch:
+    inputs:
+      rebuild_all:
+        description: "Rebuild every course (after updating kit/)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: community-publish
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: pip install -r kit/requirements-build.txt
+      - run: python .github/scripts/community_publish.py plan --out=work ${{ inputs.rebuild_all && '--all' || '' }}
+      - run: python .github/scripts/community_publish.py build --out=work
+      - uses: actions/upload-artifact@v4
+        with:
+          name: community-build
+          path: |
+            work/plan.json
+            work/courses/*/course.json
+            work/courses/*/*.zim
+          retention-days: 7
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: community-build
+          path: work
+      - run: python .github/scripts/community_publish.py publish --out=work
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -2,3 +2,7 @@
 private/
 __pycache__/
 *.zim
+
+# Compilaciones locales de cursos (kit/build.py)
+dist/
+.venv/

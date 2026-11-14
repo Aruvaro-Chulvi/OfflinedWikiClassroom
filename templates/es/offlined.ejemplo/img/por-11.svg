@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" width="360" height="150" font-family="sans-serif" text-anchor="middle">
+  <rect width="360" height="150" fill="#fbf8ef"/>
+  <text x="180" y="34" font-size="22" fill="#333">32 × 11</text>
+  <text x="120" y="96" font-size="44" fill="#1d5fa8">3</text>
+  <text x="180" y="96" font-size="44" fill="#c0392b">5</text>
+  <text x="240" y="96" font-size="44" fill="#1d5fa8">2</text>
+  <path d="M128 106 Q150 132 172 106" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <path d="M232 106 Q210 132 188 106" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <text x="180" y="144" font-size="15" fill="#c0392b">3 + 2 = 5</text>
+</svg>

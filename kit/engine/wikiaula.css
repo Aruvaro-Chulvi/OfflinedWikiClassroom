@@ -1,0 +1,453 @@
+/* WikiAula — estilo propio "de wiki" (no copia el CSS de MediaWiki).
+   Mismas clases que las páginas de Wikipedia de los ZIM (mw-parser-output,
+   infobox, toc, navbox…) para que lectores y herramientas las entiendan
+   igual. Sin sombras: los estados se marcan con color. */
+:root {
+  --bg: #ffffff; --bg2: #f8f9fa; --bg3: #eaecf0; --fg: #202122; --fg2: #54595d; --fg3: #72777d;
+  --line: #a2a9b1; --line2: #c8ccd1; --link: #3366cc; --link-v: #6b4ba1; --link-new: #d73333;
+  --prog: #3366cc; --prog-h: #2a4b8d; --prog-bg: #eaf3ff;
+  --ok: #14866d; --ok-bg: #d5fdf4; --ko: #d73333; --ko-bg: #fee7e6; --warn: #ac6600; --warn-bg: #fef6e7;
+  --lv0: #eaecf0; --lv1: #a2a9b1; --lv2: #edab00; --lv3: #3366cc; --lv4: #14866d;
+  --serif: "Linux Libertine", "Georgia", "Times", "Source Serif Pro", serif;
+  --sans: -apple-system, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #101418; --bg2: #1b1f24; --bg3: #27292d; --fg: #eaecf0; --fg2: #c8ccd1; --fg3: #a2a9b1;
+  --line: #54595d; --line2: #404244; --link: #88a3e8; --link-v: #a799cd; --link-new: #fd7865;
+  --prog: #6d8af0; --prog-h: #88a3e8; --prog-bg: #1d2a46;
+  --ok: #4cc9a6; --ok-bg: #0f3a30; --ko: #fd7865; --ko-bg: #4a1714; --warn: #f0bc00; --warn-bg: #3d2f05;
+  --lv0: #27292d; --lv1: #72777d; --lv2: #edab00; --lv3: #6d8af0; --lv4: #4cc9a6;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101418; --bg2: #1b1f24; --bg3: #27292d; --fg: #eaecf0; --fg2: #c8ccd1; --fg3: #a2a9b1;
+    --line: #54595d; --line2: #404244; --link: #88a3e8; --link-v: #a799cd; --link-new: #fd7865;
+    --prog: #6d8af0; --prog-h: #88a3e8; --prog-bg: #1d2a46;
+    --ok: #4cc9a6; --ok-bg: #0f3a30; --ko: #fd7865; --ko-bg: #4a1714; --warn: #f0bc00; --warn-bg: #3d2f05;
+    --lv0: #27292d; --lv1: #72777d; --lv2: #edab00; --lv3: #6d8af0; --lv4: #4cc9a6;
+    color-scheme: dark;
+  }
+}
+
+/* ── Página ─────────────────────────────────────────────────────────── */
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+#content { max-width: 1040px; margin: 0 auto; padding: 0 24px 40px; box-sizing: border-box; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a.external::after { content: "↗"; font-size: .75em; margin-left: .15em; color: var(--fg3); }
+img, svg { max-width: 100%; }
+.katex svg { max-width: none; }   /* las flechas de \vec y los acentos de KaTeX son <svg> dentro de cajas de ancho 0 */
+
+/* Barra superior */
+.wa-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid var(--bg3); margin-bottom: 16px; }
+.wa-logo { display: flex; align-items: center; gap: 8px; color: var(--fg); font-family: var(--serif); font-size: 1.35em; }
+.wa-logo:hover { text-decoration: none; }
+.wa-logo img { width: 30px; height: 30px; }
+.wa-logo small { font-family: var(--sans); font-size: .55em; color: var(--fg3); margin-left: 2px; }
+.wa-crumbs { font-size: .85em; color: var(--fg3); flex: 1 1 auto; min-width: 0; }
+.wa-crumbs a { color: var(--fg2); }
+.wa-crumbs span + span::before { content: "›"; margin: 0 .4em; color: var(--line); }
+.wa-stats { display: flex; gap: 6px; }
+.wa-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px 3px 7px; border: 1px solid var(--line2); border-radius: 999px; font-size: .85em; color: var(--fg2); background: var(--bg); white-space: nowrap; }
+a.wa-chip:hover { text-decoration: none; border-color: var(--prog); }
+.wa-chip svg { width: 16px; height: 16px; fill: var(--fg3); }
+.wa-chip.hot svg { fill: #ff7a00; }
+.wa-chip.done { border-color: var(--ok); color: var(--ok); }
+.wa-ring { width: 18px; height: 18px; }
+.wa-ring circle { fill: none; stroke-width: 5; }
+.wa-ring .bg { stroke: var(--bg3); }
+.wa-ring .fg { stroke: var(--ok); stroke-linecap: round; }
+
+/* Título y cuerpo (mismas clases que MediaWiki) */
+.firstHeading { font-family: var(--serif); font-weight: normal; font-size: 2em; line-height: 1.3; margin: 0 0 .1em; padding-bottom: .1em; border-bottom: 1px solid var(--line); }
+#siteSub { font-size: .85em; color: var(--fg3); margin: .3em 0 1em; }
+.mw-parser-output h2 { font-family: var(--serif); font-weight: normal; font-size: 1.55em; line-height: 1.3; margin: 1.1em 0 .45em; padding-bottom: .1em; border-bottom: 1px solid var(--line); overflow: hidden; }
+.mw-parser-output h3 { font-size: 1.2em; font-weight: bold; margin: .9em 0 .3em; }
+.mw-parser-output h4 { font-size: 1em; font-weight: bold; margin: .8em 0 .2em; }
+.mw-parser-output p { margin: .45em 0 .8em; }
+.mw-parser-output ul, .mw-parser-output ol { margin: .3em 0 .8em 1.6em; padding: 0; }
+.mw-parser-output li { margin-bottom: .15em; }
+.mw-parser-output table.wikitable { border-collapse: collapse; background: var(--bg2); border: 1px solid var(--line); margin: 1em 0; }
+.mw-parser-output table.wikitable th, .mw-parser-output table.wikitable td { border: 1px solid var(--line); padding: .25em .6em; }
+.mw-parser-output table.wikitable th { background: var(--bg3); text-align: center; }
+.mw-parser-output code { background: var(--bg2); border: 1px solid var(--bg3); border-radius: 2px; padding: 1px 4px; }
+.mw-parser-output pre, .wa-q pre { background: var(--bg2); border: 1px solid var(--bg3); border-radius: 4px; padding: .6em .9em; overflow-x: auto; font-size: .9em; line-height: 1.45; margin: .5em 0 .8em; }
+.mw-parser-output pre code { background: none; border: 0; padding: 0; }
+.mw-parser-output hr { border: 0; border-top: 1px solid var(--line); }
+.hatnote { font-style: italic; padding-left: 1.6em; margin-bottom: .6em; color: var(--fg2); }
+
+/* Ficha (infobox) */
+table.infobox { float: right; clear: right; width: 22em; margin: .3em 0 1em 1.4em; border: 1px solid var(--line); background: var(--bg2); color: var(--fg); font-size: 88%; line-height: 1.5; border-spacing: 3px; padding: .2em; }
+table.infobox caption { font-size: 125%; font-weight: bold; padding: .2em; }
+table.infobox th { text-align: left; vertical-align: top; padding: .15em .4em; width: 40%; }
+table.infobox td { vertical-align: top; padding: .15em .4em; }
+table.infobox .infobox-image { text-align: center; padding: .4em; }
+table.infobox .infobox-image img { background: #fff; border-radius: 2px; }
+table.infobox .infobox-caption { text-align: center; font-size: 92%; color: var(--fg2); padding-bottom: .4em; }
+table.infobox .infobox-header { background: var(--bg3); text-align: center; font-weight: bold; padding: .25em; }
+table.infobox .wa-tutor-lesson { width: 100%; justify-content: center; margin-top: .3em; }
+
+/* Índice (toc) */
+.toc { display: inline-block; border: 1px solid var(--line); background: var(--bg2); padding: .5em 1.2em .6em .9em; font-size: 95%; margin: .4em 0 1em; }
+.toc .toctitle { font-weight: bold; text-align: center; }
+.toc ul { list-style: none; margin: .3em 0 0; padding: 0; }
+.toc ul ul { margin-left: 1.4em; }
+.toc .tocnumber { color: var(--fg); padding-right: .4em; }
+
+/* Cajas de contenido */
+.wa-box { border: 1px solid var(--bg3); border-left: 4px solid var(--prog); background: var(--prog-bg); padding: .6em 1em; margin: 1em 0; clear: none; }
+.wa-box > :first-child { margin-top: 0; }
+.wa-box > :last-child { margin-bottom: 0; }
+.wa-box-t { font-weight: bold; margin-bottom: .2em; }
+.wa-box.ejemplo { border-left-color: var(--ok); background: var(--bg2); }
+.wa-box.importante { border-left-color: var(--lv2); background: var(--warn-bg); }
+.wa-box.recuerda { border-left-color: var(--prog); background: var(--prog-bg); }
+.wa-box.curiosidad { border-left-color: var(--link-v); background: var(--bg2); }
+.wa-box.error { border-left-color: var(--ko); background: var(--ko-bg); }
+.wa-box.intenta { border-left-color: var(--lv2); background: var(--bg2); }
+.wa-box.intenta .wa-sol { margin-top: .5em; }
+.wa-box.intenta .wa-sol > summary { cursor: pointer; color: var(--link); font-weight: bold; }
+.wa-box.intenta .wa-sol[open] { border-top: 1px dashed var(--line); padding-top: .4em; }
+/* Varios ejercicios en un «Inténtalo tú»: a), b), c)… cada uno en su renglón */
+.wa-item > p { margin: .35em 0 .35em 1.7em; text-indent: -1.7em; }
+.wa-item-l { display: inline-block; min-width: 1.7em; text-indent: 0; font-weight: bold; color: var(--warn); }
+.wa-box.resumen { border: 1px solid var(--line); border-top: 4px solid var(--prog); background: var(--bg2); }
+.wa-box.resumen ul { margin: .3em 0 0 1.2em; }
+.wa-box.pasos { border: 0; background: none; padding: 0 0 0 1.2em; margin: .4em 0; font-variant-numeric: tabular-nums; }
+figure.wa-fig { margin: 1em auto; text-align: center; clear: both; }
+figure.wa-fig img { background: #fff; padding: 6px; border: 1px solid var(--bg3); border-radius: 2px; max-width: 100%; height: auto; }
+figure.wa-fig figcaption { font-size: .88em; color: var(--fg2); margin-top: .3em; }
+figure.wa-fig img { cursor: zoom-in; }
+/* Pie ARRIBA (site.yaml → pies_en_figura): el pie se lee antes de mirar el dibujo. Va pintado
+   en la misma lámina, encima del dibujo, como una mancha rectangular de acuarela casi blanca
+   ajustada al texto, con la letra de los rótulos. El tamaño va con el ancho de la lámina (cqw),
+   como los rótulos del dibujo, con un mínimo legible en móvil. */
+@font-face { font-family: "Patrick Hand SC"; src: url("fonts/PatrickHandSC-Regular.ttf") format("truetype"); font-display: swap; }
+.wa-sheet {
+  width: calc(var(--w) * 1px); max-width: 100%; margin: 0 auto; container-type: inline-size;
+  background: #fff; border: 1px solid var(--bg3); border-radius: 2px; overflow: hidden;
+}
+.wa-sheet.paper { background: #fbf8ef url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='780' height='260' viewBox='0 0 780 260'%3E%3Cfilter id='g' x='0' y='0' width='1' height='1'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' seed='6'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.3 -0.45 0 0 0 0.24'/%3E%3C/filter%3E%3Crect width='780' height='260' filter='url(%23g)'/%3E%3C/svg%3E") 0 0 / calc(100% * 780 / var(--w)) auto repeat; }
+figure.wa-fig .wa-sheet > img { display: block; width: 100%; border: 0; padding: 0; border-radius: 0; background: transparent; }
+figure.wa-fig .wa-sheet:not(.paper) > img { padding: 0 6px 6px; }
+.wa-fig-band { padding: clamp(10px, 3cqw, 22px) 4cqw 0; }
+/* dibujos con cielo hasta arriba: la franja del recuadro sigue el cielo con la misma aguada, y su
+   contorno a mano alzada enmarca dibujo y franja juntos (build.py → top_wash): la capa de abajo
+   continúa la aguada y los bordes laterales del dibujo; la de arriba cierra el marco por encima */
+.wa-sheet.sky .wa-fig-band {
+  background: var(--sky-top) center top / 100% auto no-repeat,
+              var(--sky-body) center bottom / 100% auto no-repeat, var(--sky);
+}
+.wa-fig-cap {
+  position: relative; isolation: isolate; display: table; margin: 0 auto; max-width: 100%;
+  padding: .32em .95em .38em; font-family: "Patrick Hand SC", "Comic Sans MS", cursive;
+  font-size: clamp(17px, 3.3cqw, 26px); line-height: 1.22; letter-spacing: .035em;
+  text-transform: uppercase; color: #2f2b26; text-align: center; text-wrap: balance;
+}
+.wa-fig-cap::before {
+  content: ""; position: absolute; inset: -3px -5px; z-index: -1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 90' preserveAspectRatio='none'%3E%3Cfilter id='w' x='-4%25' y='-16%25' width='108%25' height='132%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.045' numOctaves='2' seed='9' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='6' xChannelSelector='R' yChannelSelector='G' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.04' numOctaves='3' seed='4' result='b'/%3E%3CfeColorMatrix in='b' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0 0 0 0.74' result='bA'/%3E%3CfeComposite in='d' in2='bA' operator='in' result='p'/%3E%3CfeMorphology in='d' operator='erode' radius='2' result='e'/%3E%3CfeComposite in='d' in2='e' operator='out' result='r'/%3E%3CfeColorMatrix in='r' type='matrix' values='0 0 0 0 0.66 0 0 0 0 0.6 0 0 0 0 0.5 0 0 0 0.32 0' result='edge'/%3E%3CfeMerge%3E%3CfeMergeNode in='p'/%3E%3CfeMergeNode in='edge'/%3E%3C/feMerge%3E%3C/filter%3E%3Crect x='6' y='6' width='488' height='78' rx='5' fill='%23fffefa' filter='url(%23w)'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+.wa-fig-cap .katex { text-transform: none; font-size: 1em; }
+/* símbolos que no pueden cambiar de caja (x, cm, pH, NaCl…; capsafe.py): la misma letra, con minúsculas */
+@font-face { font-family: "Patrick Hand"; src: url("fonts/PatrickHand-Regular.ttf") format("truetype"); font-display: swap; }
+.wa-fig-cap .nc { font-family: "Patrick Hand", "Comic Sans MS", cursive; text-transform: none; letter-spacing: .01em; }
+/* «Figura N. Concepto» bajo la lámina, como en un libro de texto */
+figure.wa-fig figcaption.wa-fig-num {
+  max-width: calc(var(--w, 780) * 1px); margin: .45em auto 0; font-size: .9em; line-height: 1.4;
+  color: var(--fg2); text-align: center; text-wrap: balance;
+}
+figcaption.wa-fig-num b { color: var(--fg); font-weight: 700; letter-spacing: .01em; }
+/* Fórmulas destacadas y tablas más anchas que la pantalla: se desplazan dentro de su caja */
+.mw-parser-output .katex-display { overflow-x: auto; overflow-y: hidden; padding: .15em 0; }
+/* Visor de figuras: la figura a su tamaño real (o a toda la pantalla), con desplazamiento */
+.wa-zoom { position: fixed; inset: 0; z-index: 1000; background: rgba(0, 0, 0, .82); overflow: auto; cursor: zoom-out;
+  display: flex; align-items: flex-start; justify-content: flex-start; padding: 0; }
+.wa-zoom img { display: block; flex: none; margin: auto; background: #fff; padding: 8px; border-radius: 4px; max-width: none; height: auto; }
+.wa-zoom .wa-zoom-x { position: fixed; top: 10px; right: 12px; width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: #fff; color: #202122; font-size: 22px; line-height: 40px; cursor: pointer; }
+.wa-credit { display: block; font-size: .78em; color: var(--fg3); margin-top: .15em; }
+.wa-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--line2); }
+.wa-credit a.external::after { content: none; }
+ul.wa-credits { font-size: .88em; color: var(--fg2); }
+figure.wa-fig.right { float: right; clear: right; margin: .3em 0 1em 1.4em; max-width: 50%; }
+
+/* Matemáticas en línea */
+.wa-fr { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.1; font-size: .92em; margin: 0 .1em; }
+.wa-fr > span:first-child { border-bottom: 1px solid currentColor; padding: 0 .15em; }
+.wa-frs { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.wa-sqrt { white-space: nowrap; }
+.wa-sqrt > span { border-top: 1px solid currentColor; padding: 0 .1em; margin-left: .05em; }
+.wa-hole { display: inline-block; padding: 0 .1em; color: var(--prog); font-weight: bold; }
+
+/* Pie y navbox */
+.navbox { clear: both; border: 1px solid var(--line); margin: 2em 0 1em; font-size: 90%; width: 100%; border-collapse: collapse; }
+.navbox th { background: var(--prog-bg); padding: .3em .6em; text-align: center; }
+.navbox td { padding: .3em .6em; border-top: 1px solid var(--bg3); }
+.navbox .wa-prevnext { display: flex; justify-content: space-between; gap: 1em; }
+.navbox ol.inline, .navbox ul.inline { display: inline; margin: 0; padding: 0; }
+.navbox .inline li { display: inline; }
+.navbox .inline li + li::before { content: " · "; color: var(--fg3); font-weight: bold; }
+.navbox .inline li.cur { font-weight: bold; }
+#footer { clear: both; border-top: 1px solid var(--line2); margin-top: 2.5em; padding-top: .8em; font-size: .8em; color: var(--fg3); }
+#footer p { margin: .3em 0; }
+#footer a { color: var(--fg2); }
+
+/* Sin JavaScript */
+.wa-nojs { border: 1px dashed var(--line); padding: .4em .8em; color: var(--fg2); font-size: .9em; }
+html.wa-js .wa-nojs { display: none; }
+details.wa-static { border: 1px solid var(--bg3); background: var(--bg2); padding: .4em .9em; margin: 1em 0; }
+details.wa-static > summary { cursor: pointer; font-weight: bold; }
+details.wa-static ol { margin-top: .6em; }
+details.wa-static li { margin-bottom: .9em; }
+details.wa-static .wa-st-a { margin-top: .2em; }
+details.wa-static .wa-st-a summary { cursor: pointer; color: var(--link); font-size: .92em; }
+
+/* ── Botones (planos) ───────────────────────────────────────────────── */
+.wa-btn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: .95em; font-weight: bold; line-height: 1.2; padding: 8px 14px; min-height: 38px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 4px; background: var(--bg2); color: var(--fg); cursor: pointer; text-decoration: none; }
+.wa-btn:hover { background: var(--bg3); text-decoration: none; }
+.wa-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.wa-btn.primary { background: var(--prog); border-color: var(--prog); color: #fff; }
+.wa-btn.primary:hover { background: var(--prog-h); border-color: var(--prog-h); }
+.wa-btn.ghost { background: transparent; border-color: var(--prog); color: var(--prog); }
+.wa-btn.danger { color: var(--ko); border-color: var(--ko); background: transparent; }
+.wa-btn.seg.sel { background: var(--prog-bg); border-color: var(--prog); color: var(--prog); }
+.wa-btn:focus-visible, .wa-opt:focus-visible, .wa-in:focus { outline: 2px solid var(--prog); outline-offset: 1px; }
+.wa-btn[hidden] { display: none; }
+
+/* ── Tarjeta de práctica ────────────────────────────────────────────── */
+.wa-practice { margin: 1em 0 1.4em; clear: both; }
+.wa-card { border: 1px solid var(--line); border-radius: 4px; background: var(--bg); padding: 14px 18px 16px; }
+.wa-card.boss { border-color: var(--lv2); border-top-width: 4px; }
+.wa-card-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.wa-card-title { font-weight: bold; font-size: 1.05em; display: inline-flex; align-items: center; gap: 6px; flex: 1 1 auto; }
+.wa-card-title svg { width: 20px; height: 20px; fill: var(--lv2); }
+.wa-muted { color: var(--fg2); font-size: .93em; }
+.wa-badge { display: inline-block; font-size: .78em; font-weight: bold; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line2); color: var(--fg2); background: var(--bg2); white-space: nowrap; }
+.wa-badge.lv-1 { border-color: var(--lv1); }
+.wa-badge.lv-2 { border-color: var(--lv2); color: var(--warn); background: var(--warn-bg); }
+.wa-badge.lv-3 { border-color: var(--lv3); color: var(--prog); background: var(--prog-bg); }
+.wa-badge.lv-4 { border-color: var(--lv4); color: var(--ok); background: var(--ok-bg); }
+.wa-meter { display: inline-flex; gap: 2px; vertical-align: middle; margin-right: 6px; }
+.wa-meter i { width: 14px; height: 8px; border-radius: 2px; background: var(--lv0); border: 1px solid var(--line2); box-sizing: border-box; }
+.wa-meter i.on { border-color: transparent; }
+.wa-meter i.lv-1 { background: var(--lv1); } .wa-meter i.lv-2 { background: var(--lv2); }
+.wa-meter i.lv-3 { background: var(--lv3); } .wa-meter i.lv-4 { background: var(--lv4); }
+.wa-steps { display: flex; gap: 3px; margin: 2px 0 12px; }
+.wa-steps i { flex: 1; height: 6px; border-radius: 3px; background: var(--bg3); }
+.wa-steps i.cur { background: var(--line); }
+.wa-steps i.ok { background: var(--ok); }
+.wa-steps i.ko { background: var(--ko); }
+.wa-from { font-size: .8em; color: var(--fg3); margin-bottom: 2px; }
+.wa-q { font-size: 1.12em; margin: 4px 0 12px; }
+.wa-a { margin-bottom: 12px; }
+.wa-in { font: inherit; font-size: 1.1em; padding: 7px 10px; width: 9em; max-width: 100%; box-sizing: border-box; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--fg); }
+.wa-in.wide { width: 18em; }
+.wa-in:disabled { background: var(--bg2); }
+.wa-fields { display: flex; flex-wrap: wrap; gap: 12px 18px; }
+.wa-fields label { display: flex; flex-direction: column; gap: 3px; font-size: .9em; color: var(--fg2); }
+.wa-hint { font-size: .82em; color: var(--fg3); margin-top: 5px; }
+.wa-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.wa-opt { font: inherit; font-size: 1.02em; padding: 8px 16px; min-width: 3.2em; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--fg); cursor: pointer; text-align: left; }
+.wa-opt:hover:not(:disabled) { border-color: var(--prog); }
+.wa-opt.sel { border-color: var(--prog); background: var(--prog-bg); color: var(--prog); }
+.wa-opt.good { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); }
+.wa-opt.bad { border-color: var(--ko); background: var(--ko-bg); color: var(--ko); }
+.wa-opt:disabled { cursor: default; }
+.wa-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.wa-fb:empty { display: none; }
+.wa-fb { margin-top: 12px; }
+.wa-ok, .wa-ko, .wa-warn { border-radius: 4px; padding: 10px 14px; }
+.wa-ok { background: var(--ok-bg); border: 1px solid var(--ok); }
+.wa-ok > b { color: var(--ok); display: inline-flex; align-items: center; gap: 4px; }
+.wa-ok > b svg { width: 18px; height: 18px; fill: currentColor; }
+.wa-ko { background: var(--ko-bg); border: 1px solid var(--ko); }
+.wa-ko > b { color: var(--ko); }
+.wa-warn { background: var(--warn-bg); border: 1px solid var(--lv2); color: var(--warn); }
+.wa-xp { color: var(--ok); font-weight: bold; font-size: .9em; margin-left: 4px; }
+.wa-xp.big { font-size: 1.1em; }
+.wa-sol { margin-top: 8px; font-size: .95em; }
+.wa-sol summary { cursor: pointer; color: var(--link); }
+.wa-sol.open { border-top: 1px solid var(--line2); padding-top: 8px; }
+.wa-sol-t { font-weight: bold; font-size: .85em; text-transform: uppercase; letter-spacing: .03em; color: var(--fg2); }
+.wa-official { margin-top: 6px; font-size: .95em; }
+/* Encartha dentro de la práctica */
+.wa-ai { display: flex; gap: 10px; align-items: flex-start; margin-top: 10px; padding: 10px 14px; border-radius: 4px; border: 1px solid var(--line2); border-left: 4px solid var(--link-v); background: var(--bg2); }
+.wa-ai-av { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
+.wa-ai-main { min-width: 0; flex: 1; }
+.wa-ai-name { font-weight: bold; color: var(--link-v); display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.wa-ai-st { font-weight: normal; font-size: .9em; color: var(--fg2); display: inline-flex; align-items: baseline; gap: 6px; }
+.wa-ai-st em { font-style: normal; color: var(--fg3); font-variant-numeric: tabular-nums; }
+.wa-ai-body:empty { display: none; }
+.wa-ai-body { margin-top: 4px; line-height: 1.55; overflow-wrap: anywhere; }
+.wa-ai-body p { margin: 0 0 .5em; }
+.wa-ai-body p:last-child { margin-bottom: 0; }
+.wa-ai-failtxt, .wa-ai-fail { color: var(--fg2); font-style: italic; }
+.wa-ai-fail { margin-top: 8px; font-size: .92em; }
+.wa-dots { display: inline-flex; gap: 3px; }
+.wa-dots b { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: .25; animation: wa-dot 1.2s infinite; }
+.wa-dots b:nth-child(2) { animation-delay: .2s; }
+.wa-dots b:nth-child(3) { animation-delay: .4s; }
+@keyframes wa-dot { 0%, 60%, 100% { opacity: .25; } 30% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .wa-dots b { animation: none; opacity: .6; } }
+.wa-combo { display: inline-flex; align-items: center; gap: 4px; font-size: .85em; font-weight: bold; color: #ff7a00; }
+.wa-combo svg { width: 16px; height: 16px; fill: currentColor; }
+.wa-score { display: flex; align-items: baseline; gap: 12px; font-size: 1.25em; margin: 4px 0 8px; }
+.wa-ok-t { color: var(--ok); font-weight: bold; display: flex; align-items: center; gap: 6px; }
+.wa-ok-t svg { width: 20px; height: 20px; fill: currentColor; }
+.wa-up { font-weight: bold; color: var(--prog); margin: 4px 0; }
+.wa-result { animation: wa-pop .35s ease-out; }
+@keyframes wa-pop { from { transform: scale(.97); opacity: .4; } to { transform: none; opacity: 1; } }
+
+/* ── Mapa del curso ─────────────────────────────────────────────────── */
+.wa-path { margin: 1em 0 2em; clear: both; }
+.wa-u { margin: 0 0 1.6em; }
+.wa-u > header { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; background: var(--prog-bg); border: 1px solid var(--bg3); border-left: 4px solid var(--prog); padding: 8px 14px; border-radius: 4px; }
+.wa-u.soon > header { background: var(--bg2); border-left-color: var(--line2); color: var(--fg3); }
+.wa-u-n { font-size: .8em; font-weight: bold; text-transform: uppercase; letter-spacing: .04em; color: var(--fg2); }
+.wa-u-t { font-family: var(--serif); font-size: 1.35em; color: var(--fg); flex: 1 1 auto; }
+.wa-u-s { font-size: .85em; color: var(--fg2); display: inline-flex; align-items: center; gap: 4px; }
+.wa-u-s svg { width: 16px; height: 16px; fill: var(--lv2); }
+.wa-u.soon .wa-u-s svg { fill: var(--fg3); }
+.wa-dot { border-color: var(--prog); }
+.wa-dot { flex: 0 0 auto; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25em; background: var(--lv0); border: 3px solid var(--line2); color: var(--fg2); box-sizing: border-box; }
+.wa-dot svg { width: 26px; height: 26px; fill: currentColor; }
+.wa-dot.sm { width: 32px; height: 32px; font-size: .9em; border-width: 2px; }
+.wa-dot.sm svg { width: 16px; height: 16px; }
+.lv-1 > .wa-dot, .wa-dot.lv-1 { background: var(--bg2); border-color: var(--lv1); }
+.lv-2 > .wa-dot, .wa-dot.lv-2 { background: var(--lv2); border-color: var(--lv2); color: #3d2f05; }
+.lv-3 > .wa-dot, .wa-dot.lv-3 { background: var(--lv3); border-color: var(--lv3); color: #fff; }
+.lv-4 > .wa-dot, .wa-dot.lv-4 { background: var(--lv4); border-color: var(--lv4); color: #fff; }
+@keyframes wa-here { 50% { outline-offset: 6px; } }
+/* Lecciones de cada unidad: tarjetas de texto en 3 columnas con su progreso (sin imágenes: las imágenes van dentro del artículo) */
+.wa-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 14px 0 4px; }
+.wa-lc { display: flex; flex-direction: column; border: 1px solid var(--bg3); border-left: 4px solid var(--line2); border-radius: 8px; background: var(--bg); color: var(--fg); min-width: 0; }
+.wa-lc:hover { text-decoration: none; border-color: var(--prog); }
+.wa-lc-b { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px 12px; flex: 1; font-size: .9em; line-height: 1.3; }
+.wa-lc-k { display: flex; align-items: center; gap: 8px; font-size: .82em; color: var(--fg3); text-transform: uppercase; letter-spacing: .04em; }
+.wa-lc-k .wa-dot { text-transform: none; letter-spacing: 0; }
+/* Lecciones de ampliación: etiqueta en tarjetas y ficha, y aviso al principio de la lección */
+.wa-ext { display: inline-block; padding: 0 7px; border-radius: 999px; border: 1px dashed var(--line2); color: var(--fg2); background: var(--bg2); font-size: .92em; font-weight: bold; letter-spacing: .02em; text-transform: none; }
+.wa-lc-k:has(.wa-ext) { flex-wrap: wrap; row-gap: 4px; }   /* si no cabe, la etiqueta baja de línea */
+.wa-lc-k .wa-ext { margin-inline-start: auto; }
+.wa-ext-note { margin: 0 0 1em; padding: .6em .9em; border-inline-start: 3px dashed var(--line2); background: var(--bg2); border-radius: 6px; color: var(--fg2); }
+.wa-lc-b b { font-size: 1.12em; color: var(--fg); }
+.wa-lc-p { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.wa-lc-x { color: var(--fg2); font-size: .92em; margin-top: auto; }
+.wa-lc-x em { font-style: normal; font-weight: bold; color: var(--prog); }
+.wa-lc-x em.due { color: var(--warn); }
+.wa-lc.lv-1 { border-left-color: var(--lv1); }
+.wa-lc.lv-2 { border-left-color: var(--lv2); }
+.wa-lc.lv-3 { border-left-color: var(--lv3); }
+.wa-lc.lv-4 { border-left-color: var(--lv4); }
+.wa-lc.here { border-color: var(--prog); border-left-color: var(--prog); background: var(--prog-bg); }
+.wa-lc.here .wa-dot { outline: 3px solid var(--prog); outline-offset: 2px; animation: wa-here 1.6s ease-in-out infinite; }
+.wa-lc.boss { border-left-color: var(--lv2); background: var(--warn-bg); }
+.wa-lc.boss .wa-dot { background: var(--bg); border-color: var(--lv2); color: var(--lv2); }
+.wa-lc.boss.lv-4 .wa-dot { background: var(--lv2); color: #fff; }
+@media (max-width: 760px) { .wa-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .wa-cards { grid-template-columns: 1fr; } }
+
+/* Lista de lecciones (unidad, repaso) */
+.wa-list { list-style: none; margin: .6em 0 1em !important; padding: 0 !important; }
+.wa-list li { margin: 0; border-bottom: 1px solid var(--bg3); }
+.wa-list li a { display: flex; align-items: center; gap: 10px; padding: 7px 4px; color: var(--fg); }
+.wa-list li a:hover { background: var(--bg2); text-decoration: none; }
+.wa-list .wa-lt { flex: 1 1 auto; }
+.wa-list.plain li { border: 0; padding: 2px 0; }
+
+/* Mi progreso */
+.wa-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 1em 0; }
+.wa-tile { border: 1px solid var(--line2); border-radius: 4px; padding: 10px 14px; background: var(--bg2); display: flex; flex-direction: column; gap: 2px; }
+.wa-tile span { font-size: .82em; color: var(--fg2); }
+.wa-tile b { font-size: 1.5em; }
+.wa-tile small { display: inline-flex; align-items: center; gap: 4px; color: var(--fg2); }
+.wa-tile small svg { width: 14px; height: 14px; fill: #ff7a00; }
+.wa-lbar { height: 6px; background: var(--bg3); border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.wa-lbar i { display: block; height: 100%; background: var(--prog); }
+.wa-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.wa-heat { display: grid; grid-template-rows: repeat(7, 13px); grid-auto-flow: column; grid-auto-columns: 13px; gap: 3px; margin: .6em 0; overflow-x: auto; }
+.wa-heat i { border-radius: 2px; background: var(--bg3); }
+.wa-heat i.h1 { background: color-mix(in srgb, var(--ok) 30%, var(--bg)); }
+.wa-heat i.h2 { background: color-mix(in srgb, var(--ok) 55%, var(--bg)); }
+.wa-heat i.h3 { background: color-mix(in srgb, var(--ok) 80%, var(--bg)); }
+.wa-heat i.h4 { background: var(--ok); }
+.wa-courses { list-style: none; margin: .5em 0 !important; padding: 0 !important; }
+.wa-courses li { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; margin-bottom: 12px; }
+.wa-stack { grid-column: 1 / -1; display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: var(--lv0); }
+.wa-stack i.lv-1 { background: var(--lv1); } .wa-stack i.lv-2 { background: var(--lv2); }
+.wa-stack i.lv-3 { background: var(--lv3); } .wa-stack i.lv-4 { background: var(--lv4); } .wa-stack i.lv-0 { background: var(--lv0); }
+.wa-ach { list-style: none; margin: .5em 0 1em !important; padding: 0 !important; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+.wa-ach li { display: grid; grid-template-columns: 28px 1fr; gap: 0 8px; align-items: center; border: 1px solid var(--bg3); border-radius: 4px; padding: 8px 10px; color: var(--fg3); }
+.wa-ach li svg { grid-row: span 2; width: 24px; height: 24px; fill: var(--line2); }
+.wa-ach li b { color: var(--fg2); }
+.wa-ach li span { font-size: .82em; }
+.wa-ach li.got { border-color: var(--lv2); background: var(--warn-bg); color: var(--fg2); }
+.wa-ach li.got svg { fill: var(--lv2); }
+.wa-ach li.got b { color: var(--fg); }
+
+/* Portada */
+.wa-hero { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; padding: 6px 0 12px; }
+.wa-hero img { width: 96px; height: 96px; }
+.wa-hero h1 { font-family: var(--serif); font-weight: normal; font-size: 2.3em; margin: 0; line-height: 1.15; }
+.wa-hero p { margin: .2em 0 0; color: var(--fg2); font-size: 1.05em; }
+.wa-feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 1em 0 1.6em; }
+.wa-feat { border: 1px solid var(--bg3); border-radius: 8px; background: var(--bg2); padding: 14px 16px; }
+.wa-feat svg { width: 28px; height: 28px; fill: none; stroke: var(--prog); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wa-feat b { display: block; margin: 6px 0 4px; font-size: 1.05em; }
+.wa-feat p { margin: 0; font-size: .92em; color: var(--fg2); }
+ol.wa-steps { list-style: none; padding: 0 !important; margin: 1em 0 1.6em !important; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+ol.wa-steps li { border-left: 3px solid var(--prog); padding: 2px 0 4px 14px; margin: 0; }
+.wa-step-n { display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--prog); color: #fff; align-items: center; justify-content: center; font-weight: bold; font-size: .9em; margin-right: 6px; }
+ol.wa-steps b { font-size: 1.05em; }
+ol.wa-steps p { margin: .4em 0 0; font-size: .92em; color: var(--fg2); }
+.wa-stagetabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 2px solid var(--bg3); margin: .8em 0 0; }
+.wa-stagetabs[hidden], .wa-stagepanel[hidden] { display: none; }
+.wa-stagetab { font: inherit; font-weight: bold; padding: 8px 16px; border: 1px solid var(--bg3); border-bottom: none; border-radius: 6px 6px 0 0; background: var(--bg2); color: var(--fg2); cursor: pointer; margin-bottom: -2px; }
+.wa-stagetab:hover { color: var(--prog); }
+.wa-stagetab.sel { background: var(--bg); color: var(--prog); border-color: var(--prog); border-bottom: 2px solid var(--bg); }
+.wa-tabs-on .wa-stage-h { display: none; }
+.wa-stage-h { font-family: var(--serif); font-weight: normal; }
+.wa-grade { margin: 1em 0 1.4em; }
+.wa-grade h4 { margin: 0 0 .5em !important; font-family: var(--serif); font-weight: normal; font-size: 1.25em; }
+.wa-grade h4 small { font-family: var(--sans); font-size: .62em; color: var(--fg3); margin-left: 6px; }
+.wa-scs { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+.wa-sc { display: flex; flex-direction: column; border: 1px solid var(--bg3); border-top: 4px solid var(--prog); border-radius: 8px; background: var(--bg); color: var(--fg); min-width: 0; }
+.wa-sc:hover { text-decoration: none; border-color: var(--prog); background: var(--prog-bg); }
+.wa-sc-b { display: flex; flex-direction: column; gap: 3px; padding: 8px 10px 10px; font-size: .9em; }
+.wa-sc-b b { font-size: 1.05em; }
+.wa-sc-b small { color: var(--fg3); }
+.wa-sc-bar { display: flex; align-items: center; gap: 6px; min-height: 1.3em; font-size: .9em; }
+.wa-sc-bar em { font-style: normal; color: var(--fg2); }
+.wa-sc-bar em.none { color: var(--fg3); }
+.wa-sc-track { flex: 0 0 60px; height: 6px; border-radius: 3px; background: var(--bg3); overflow: hidden; }
+.wa-sc-track i { display: block; height: 100%; background: var(--lv4); }
+.wa-offlined { border: 1px solid var(--line2); border-left: 4px solid var(--ok); background: var(--bg2); padding: .7em 1em; margin: 1.5em 0; font-size: .95em; }
+
+/* Avisos flotantes */
+.wa-toasts { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 50; max-width: calc(100vw - 32px); }
+.wa-toast { background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 4px; font-size: .92em; transition: opacity .5s, transform .5s; }
+.wa-toast.ach { background: var(--lv2); color: #2b1f00; }
+.wa-toast.goal { background: var(--ok); color: #fff; }
+.wa-toast.bad { background: var(--ko); color: #fff; }
+.wa-toast.out { opacity: 0; transform: translateY(8px); }
+
+@media (max-width: 720px) {
+  #content { padding: 0 16px 32px; }
+  table.infobox, figure.wa-fig.right { float: none; width: 100%; max-width: none; margin: .6em 0 1em; }
+  .firstHeading { font-size: 1.6em; }
+  .mw-parser-output table:not(.infobox) { display: block; max-width: 100%; overflow-x: auto; }
+}
+@media print {
+  .wa-bar .wa-stats, .wa-practice, .wa-toasts, .wa-tutor-lesson { display: none !important; }
+  details.wa-static { display: block; }
+}
+@media (prefers-reduced-motion: reduce) { .wa-lc.here .wa-dot, .wa-result { animation: none; } }
+
+/* Fórmulas (KaTeX, MIT): $…$ en línea, $$…$$ en bloque, raíces y fracciones */
+.katex { font-size: 1.08em; }
+.wa-math { margin: .6em 0; overflow-x: auto; overflow-y: hidden; text-align: center; }
+.wa-tex { white-space: nowrap; }

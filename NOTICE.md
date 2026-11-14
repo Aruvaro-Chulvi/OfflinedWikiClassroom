@@ -8,6 +8,8 @@
 |---|---|---|
 | Lessons, exercises, figures and page design | `wikiaula_*.zim` in Releases | [CC BY-SA 4.0](LICENSE) |
 | This repository's texts and `manifest.json` | this repository | [CC BY-SA 4.0](LICENSE) |
+| Build kit (engine, compiler, checker) and workflow scripts | `kit/`, `.github/scripts/` | [MIT](kit/LICENSE) |
+| Community courses | `community/<lang>/<author>.<course>/` and their ZIMs in the `community` release | each course's own licence (`licencia` in its `curso.yaml`: CC BY-SA 4.0, CC BY 4.0 or CC0 1.0), © their authors; code in `gen/` under MIT |
 
 You may copy, adapt and share WikiClassroom, also commercially, as long as you credit the author and share
 your changes under the same license.

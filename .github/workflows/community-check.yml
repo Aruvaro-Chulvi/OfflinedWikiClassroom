@@ -1,0 +1,57 @@
+# Checks a pull request that adds or changes a community course.
+# Runs with read-only permissions and no secrets. The tools (kit/ and
+# .github/scripts/) come from the BASE branch, so a pull request cannot change
+# how it is checked. It does not publish anything: only the maintainer can, by
+# merging (see community-publish.yml).
+name: Check community course
+
+on:
+  pull_request:
+    paths: ["community/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Tools from the base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+          persist-credentials: false
+      - name: The pull request
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: pip install -r base/kit/requirements-build.txt
+      - name: Check, test the generators and build a preview
+        run: |
+          python base/.github/scripts/community_publish.py check \
+            --repo=pr --base=${{ github.event.pull_request.base.sha }} \
+            --author=${{ github.event.pull_request.user.login }} --out=work
+      - name: Report
+        if: always()
+        run: cat work/report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - name: Preview (ZIM + pages)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: course-preview
+          path: |
+            work/
+            !work/**/_specs_*.json
+          retention-days: 14
+          if-no-files-found: ignore

@@ -1,0 +1,56 @@
+/* WikiAula — textos y bancos de gen/pla8.js (Educación plástica, visual y audiovisual, Grado 8), en español. */
+"use strict";
+(function () {
+const G = window.WA.I18N.es.gen;
+const S = G.pla8 = G.pla8 || {};
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const bank = (q, cats, why, items) => ({ q, cats, why, items, find: null });
+Object.assign(S, {
+  sistema: bank(x => `${cap(x)}: ¿qué sistema de representación es?`, ["Diédrico", "Axonométrico", "Cónico"],
+    ["Vistas con medidas reales.", "Una imagen con tres ejes; paralelas paralelas.", "Como lo vemos: puntos de fuga."],
+    [["el plano acotado de una pieza con alzado, planta y perfil", 0], ["las vistas de una casa para construirla", 0], ["las instrucciones de montaje de un mueble", 1],
+     ["un cubo dibujado en isométrica", 1], ["un dibujo en perspectiva caballera", 1], ["una calle dibujada con un punto de fuga", 2], ["una ilustración de una plaza vista desde la esquina", 2]]),
+  vista: bank(x => `${cap(x)}: ¿qué vista es?`, ["Alzado", "Planta", "Perfil"], ["Vista de frente.", "Vista desde arriba.", "Vista lateral."],
+    [["la vista de frente", 0], ["muestra el alto y el ancho", 0], ["la vista desde arriba", 1], ["se dibuja debajo del alzado", 1], ["muestra el ancho y el fondo", 1],
+     ["la vista lateral", 2], ["en el sistema europeo va a la derecha del alzado", 2], ["muestra el alto y el fondo", 2]]),
+  iso: bank(x => `${cap(x)}: ¿verdadero o falso?`, ["Verdadero", "Falso"], ["Es correcto.", "No es correcto."],
+    [["los ejes isométricos forman 120° entre sí", 0], ["dos ejes están inclinados 30° sobre la horizontal", 0], ["un cubo isométrico se ve como un hexágono", 0],
+     ["se empieza por un prisma envolvente", 0], ["en isométrica, las paralelas se juntan en un punto de fuga", 1], ["los ejes isométricos forman 90° entre sí", 1],
+     ["en la caballera, la cara frontal se deforma", 1]]),
+  fuga: bank(x => `${cap(x)}: ¿cuántos puntos de fuga usarías?`, ["Uno (frontal)", "Dos (oblicua)"], ["Una cara de frente.", "El objeto visto de esquina."],
+    [["un pasillo visto desde un extremo", 0], ["unas vías del tren que se alejan de frente", 0], ["una habitación vista de frente desde la puerta", 0],
+     ["un edificio en una esquina visto desde enfrente", 1], ["una caja vista de esquina", 1], ["un cruce de calles visto en diagonal", 1]]),
+  tangencia: bank(x => `${cap(x)}: ¿verdadero o falso?`, ["Verdadero", "Falso"], ["Es correcto.", "No es correcto."],
+    [["la recta tangente es perpendicular al radio en el punto de tangencia", 0], ["el punto de tangencia de dos circunferencias está en la recta de centros", 0],
+     ["dos circunferencias tangentes exteriores tienen sus centros a r₁ + r₂", 0], ["la recta tangente corta a la circunferencia en dos puntos", 1],
+     ["en tangencias interiores, la distancia entre centros es r₁ + r₂", 1], ["un enlace produce una esquina con pico", 1]]),
+  curva: bank(x => `${cap(x)}: ¿óvalo, ovoide o espiral?`, ["Óvalo", "Ovoide", "Espiral"], ["Cerrada, dos ejes de simetría.", "Cerrada, forma de huevo, un eje.", "Abierta, da vueltas."],
+    [["la planta de un estadio", 0], ["una curva cerrada con dos ejes de simetría", 0], ["la forma de un huevo", 1], ["un caparazón más ancho por detrás", 1],
+     ["la concha del nautilo", 2], ["la voluta de un capitel jónico", 2], ["una curva abierta que se aleja del centro", 2]]),
+  ambito: bank(x => `${cap(x)}: ¿qué ámbito del diseño es?`, ["Gráfico", "Industrial", "Moda", "Interiores", "Web e interfaces"],
+    ["Comunicación visual.", "Objetos en serie.", "Ropa y complementos.", "Espacios habitables.", "Pantallas y experiencia de usuario."],
+    [["un cartel de un festival", 0], ["el logotipo de un club", 0], ["una silla fabricada en serie", 1], ["un nuevo exprimidor", 1], ["una colección de zapatillas", 2],
+     ["la decoración de una cafetería", 3], ["la distribución de una oficina", 3], ["la app del instituto", 4], ["los menús de un videojuego", 4]]),
+  tipo: bank(x => `${cap(x)}: ¿qué tipografía conviene?`, ["Con serifa", "Sin serifa", "Caligráfica", "Decorativa"],
+    ["Clásica, para textos largos impresos.", "Limpia, legible en pantalla y señales.", "Imita la escritura a mano.", "Para títulos llamativos."],
+    [["una novela impresa", 0], ["un periódico tradicional", 0], ["las señales de la autopista", 1], ["el texto de una app en el móvil", 1],
+     ["los nombres en una invitación de boda", 2], ["una felicitación escrita «a mano»", 2], ["el título de un cartel de Halloween", 3], ["el rótulo de un circo", 3]]),
+  camara: bank(x => `${cap(x)}: ¿qué recurso audiovisual es?`, ["Panorámica", "Travelling", "Zoom", "Montaje"],
+    ["La cámara gira sin desplazarse.", "La cámara se desplaza.", "El objetivo acerca o aleja.", "Ordenar y unir los planos."],
+    [["la cámara gira para mostrar todo el valle", 0], ["la cámara barre de izquierda a derecha un estadio", 0], ["la cámara va sobre raíles junto al corredor", 1],
+     ["un dron sigue al coche por la carretera", 1], ["acercar la cara sin mover la cámara", 2], ["la imagen se acerca con el objetivo", 2], ["decidir el orden de los planos", 3],
+     ["poner un fundido entre dos escenas", 3]]),
+  licencia: bank(x => `${cap(x)}: ¿qué condición Creative Commons es?`, ["BY", "NC", "ND", "SA"],
+    ["Reconocimiento: citar al autor.", "No comercial.", "Sin obra derivada.", "Compartir igual."],
+    [["hay que citar al autor", 0], ["reconocimiento", 0], ["no se puede usar para ganar dinero", 1], ["prohibido el uso comercial", 1], ["no se puede modificar la obra", 2],
+     ["no se permiten versiones derivadas", 2], ["las obras derivadas deben llevar la misma licencia", 3]]),
+  formato: bank(x => `Para ${x}, ¿qué formato eliges?`, ["JPG", "PNG", "SVG", "GIF"],
+    ["Fotos, mucha compresión.", "Transparencia sin perder calidad.", "Vectorial, escalable.", "Pequeñas animaciones."],
+    [["una foto de vacaciones", 0], ["subir muchas fotos ocupando poco", 0], ["un dibujo con fondo transparente para la web", 1], ["una captura de pantalla nítida", 1],
+     ["un logotipo que se imprimirá en una pancarta enorme", 2], ["un icono que debe verse nítido a cualquier tamaño", 2], ["una pequeña animación en bucle", 3]]),
+  ce_q: (ext, a, b) => `Dos circunferencias de radios ${a} cm y ${b} cm son tangentes ${ext ? "exteriores" : "interiores"}. ¿A qué distancia están sus centros? (cm)`,
+  ce_s: (ext, a, b) => ext ? `${a} + ${b} = <b>${a + b}</b> cm` : `${a} − ${b} = <b>${a - b}</b> cm`,
+  ce_q2: (ext, a, d) => `Dos circunferencias son tangentes ${ext ? "exteriores" : "interiores"}. Una mide ${a} cm de radio y sus centros están a ${d} cm. ¿Cuál es el radio de la ${ext ? "otra" : "pequeña"}? (cm)`,
+  ce_s2: (ext, a, d, b) => ext ? `${d} − ${a} = <b>${b}</b> cm` : `${a} − ${d} = <b>${b}</b> cm`,
+});
+})();

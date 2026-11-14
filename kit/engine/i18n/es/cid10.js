@@ -1,0 +1,72 @@
+/* WikiAula — textos y bancos de gen/cid10.js (Ciudadanía y ética, Grado 10), en español. */
+"use strict";
+(function () {
+const G = window.WA.I18N.es.gen;
+const S = G.cid10 = G.cid10 || {};
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const bank = (q, cats, why, items) => ({ q, cats, why, items, find: null });
+const n = x => String(x).replace(".", ",");
+const m = x => x.toLocaleString("es-ES").replace(/\./g, " ");
+Object.assign(S, {
+  principio: bank(x => `${cap(x)}: ¿qué principio de la bioética se aplica sobre todo?`, ["Autonomía", "Beneficencia", "No maleficencia", "Justicia"],
+    ["Respetar la decisión informada del paciente.", "Buscar el bien del paciente.", "No causar daño.", "Repartir con equidad."],
+    [["pedir el consentimiento informado antes de operar", 0], ["respetar que un adulto rechace un tratamiento", 0], ["recomendar el tratamiento más eficaz para el paciente", 1],
+     ["vacunar para proteger la salud del niño", 1], ["no probar un fármaco peligroso sin ensayos previos", 2], ["evitar pruebas innecesarias que puedan dañar", 2],
+     ["asignar los órganos por criterios médicos, no por dinero", 3], ["atender igual a todos sin importar su origen", 3]]),
+  genetica: bank(x => `${cap(x)}: ¿terapia o mejora genética?`, ["Terapia", "Mejora"], ["Curar o prevenir una enfermedad.", "Aumentar capacidades en personas sanas."],
+    [["corregir el gen de la anemia falciforme", 0], ["tratar una ceguera hereditaria", 0], ["eliminar una mutación que causa fibrosis quística", 0], ["elegir genes para ser más alto", 1],
+     ["modificar un embrión para que tenga ojos azules", 1], ["aumentar la masa muscular de un deportista", 1], ["editar genes para mejorar la memoria de una persona sana", 1]]),
+  final: bank(x => `${cap(x)}: ¿qué es?`, ["Cuidados paliativos", "Testamento vital", "Eutanasia", "Donación de órganos"],
+    ["Aliviar el dolor y acompañar.", "Instrucciones previas por escrito.", "Ayuda médica para morir a petición propia.", "Dar órganos para salvar a otros."],
+    [["tratar el dolor de un enfermo de cáncer terminal y acompañar a su familia", 0], ["dejar escrito que no quieres máquinas si quedas en coma irreversible", 1],
+     ["un paciente con sufrimiento grave e incurable pide ayuda médica para morir", 2], ["tras fallecer, sus riñones salvan a dos personas", 3], ["dar un riñón en vida a tu hermana", 3]]),
+  ia: bank(x => `${cap(x)}: ¿qué problema ético de la IA muestra?`, ["Sesgo", "Opacidad (caja negra)", "Responsabilidad", "Privacidad", "Desinformación", "Empleo"],
+    ["Discrimina por datos sesgados.", "No se sabe por qué decide.", "¿Quién responde?", "Vigilancia y datos.", "Contenidos falsos.", "Sustituye trabajos."],
+    [["una IA de selección descarta más currículos de mujeres", 0], ["un sistema reconoce peor las caras de piel oscura", 0], ["el banco no sabe explicar por qué la IA te negó el préstamo", 1],
+     ["un coche autónomo atropella a un peatón: ¿culpa del fabricante o del dueño?", 2], ["cámaras con reconocimiento facial en todas las calles", 3], ["un vídeo falso de un político creado con IA", 4],
+     ["una empresa sustituye a sus teleoperadores por un chatbot", 5]]),
+  datos: bank(x => `${cap(x)}: ¿qué derecho del RGPD ejerces?`, ["Acceso", "Rectificación", "Supresión (olvido)", "Oposición", "Portabilidad"],
+    ["Saber qué datos tienen.", "Corregirlos.", "Que los borren.", "Negarte a un uso.", "Llevártelos a otro servicio."],
+    [["pides a una red social una copia de los datos que guarda de ti", 0], ["corriges tu dirección equivocada en la ficha del gimnasio", 1], ["pides a un buscador que retire una noticia antigua sobre ti", 2],
+     ["pides que borren tu cuenta y todos tus datos", 2], ["te niegas a que usen tus datos para enviarte publicidad", 3], ["te llevas tu lista de canciones a otra plataforma", 4]]),
+  economia: bank(x => `${cap(x)}: ¿práctica responsable o irresponsable?`, ["Responsable", "Irresponsable"], ["RSC, comercio justo, transparencia.", "Lavado verde, explotación, engaño."],
+    [["pagar a los productores de cacao un precio justo", 0], ["publicar las emisiones de CO₂ verificadas por expertos", 0], ["igualar los sueldos de mujeres y hombres", 0], ["una cooperativa que reparte beneficios entre sus socios", 0],
+     ["poner «eco» en un envase sin ningún sello ni dato", 1], ["fabricar móviles que fallan justo al acabar la garantía", 1], ["subcontratar talleres sin medidas de seguridad", 1],
+     ["invertir en fábricas de armas a escondidas de los clientes", 1]]),
+  centrismo: bank(x => `«${x}». ¿Qué postura de ética ambiental es?`, ["Antropocentrismo", "Biocentrismo", "Ecocentrismo"],
+    ["Solo importan los humanos.", "Todo ser vivo tiene valor.", "Valen los ecosistemas enteros."],
+    [["Hay que cuidar los bosques porque nos dan madera y aire limpio", 0], ["Protegemos el río para que nuestros nietos puedan bañarse", 0], ["Cada planta y cada insecto tiene valor en sí mismo", 1],
+     ["Matar a un ser vivo sin necesidad está mal, sea el que sea", 1], ["Lo importante es preservar la integridad del ecosistema", 2], ["El Mar Menor debe tener derechos como un todo", 2]]),
+  animal: bank(x => `«${x}». ¿Qué postura sobre los animales es?`, ["Tradicional", "Bienestarismo (Singer)", "Derechos de los animales (Regan)"],
+    ["Animales como cosas o deberes indirectos.", "Lo importante es evitar el sufrimiento.", "Tienen derechos que no se pueden sacrificar."],
+    [["Los animales son como máquinas sin sentimientos", 0], ["No hay que maltratar animales porque nos vuelve crueles con las personas", 0], ["Lo que cuenta es la capacidad de sufrir", 1],
+     ["Discriminar por la especie es especismo", 1], ["Cada animal es sujeto de una vida y tiene derechos", 2], ["Ningún beneficio justifica usar un animal como medio", 2]]),
+  justicia: bank(x => `«${x}». ¿Qué teoría de la justicia lo defiende?`, ["Utilitarismo", "Libertarismo (Nozick)", "Liberalismo igualitario (Rawls)"],
+    ["Máxima felicidad total.", "Propiedad y Estado mínimo.", "Velo de ignorancia y principio de diferencia."],
+    [["Lo justo es lo que maximiza el bienestar total", 0], ["Una medida es buena si beneficia a la mayoría", 0], ["Cobrar impuestos para redistribuir es injusto con lo que cada uno ha ganado", 1],
+     ["El Estado solo debe proteger la propiedad y los contratos", 1], ["Elegiríamos las reglas sin saber si seremos ricos o pobres", 2], ["Las desigualdades solo valen si benefician a los más desfavorecidos", 2]]),
+  global: bank(x => `${cap(x)}: ¿caridad voluntaria o deber de justicia global?`, ["Caridad o altruismo", "Deber de justicia"],
+    ["Ayudar por generosidad.", "Reparar un daño o una estructura injusta."],
+    [["donar a una ONG por solidaridad", 0], ["apadrinar a un niño de otro país", 0], ["dar parte de tu sueldo donde más vidas salva", 0], ["pagar precios justos a los productores del Sur", 1],
+     ["que los países que más contaminaron financien la adaptación climática", 1], ["cancelar deudas injustas de países empobrecidos", 1]]),
+  violencia: bank(x => `${cap(x)}: ¿qué tipo de violencia es, según Galtung?`, ["Directa", "Estructural", "Cultural"],
+    ["Física o verbal, visible.", "Causada por estructuras injustas.", "Ideas que justifican la violencia."],
+    [["un bombardeo sobre una ciudad", 0], ["una pelea a puñetazos", 0], ["insultar y amenazar a alguien", 0], ["barrios sin agua potable mientras otros la tienen", 1],
+     ["niñas que no pueden ir a la escuela por falta de inversión", 1], ["salarios de miseria en una región olvidada", 1], ["chistes que presentan a otro pueblo como inferior", 2],
+     ["canciones que glorifican la guerra", 2], ["la idea de que las mujeres deben obedecer", 2]]),
+  autor: bank(x => `«${x}». ¿Quién lo dijo o lo propuso?`, ["Kant", "Rawls", "Singer", "Hans Jonas", "Galtung", "Adela Cortina"],
+    ["Paz perpetua, hospitalidad.", "Velo de ignorancia.", "Especismo y el niño en el estanque.", "Principio de responsabilidad.", "Violencia estructural.", "Aporofobia, ética de mínimos."],
+    [["Una federación de Estados libres para lograr la paz perpetua", 0], ["Derecho cosmopolita a la hospitalidad", 0], ["El velo de ignorancia", 1], ["El principio de diferencia", 1],
+     ["La distancia no cambia el deber de ayudar", 2], ["Discriminar por la especie es especismo", 2], ["Obra de modo que sea posible la vida humana en el futuro", 3],
+     ["La paz positiva exige justicia social", 4], ["Hay violencia estructural, no solo directa", 4], ["El rechazo al pobre se llama aporofobia", 5], ["Una ética cívica de mínimos compartidos", 5]]),
+  pm_q: (mi, d) => `Un país de ${mi} millones de habitantes tuvo ${m(d)} donantes de órganos en un año. ¿Cuántos donantes por millón (pmp) son?`,
+  pm_s: (mi, d, t) => `${m(d)} / ${mi} = <b>${t}</b> donantes pmp`,
+  hu_q: h => `Si la huella ecológica media es de ${n(h)} gha por persona y la Tierra ofrece 1,6 gha por persona, ¿cuántas Tierras harían falta si todos vivieran así?`,
+  hu_s: (h, k) => `${n(h)} / 1,6 = <b>${n(k)}</b> Tierras`,
+  mx_q: (A, B, r) => `Sociedad A: ingresos de sus tres grupos ${A.join(", ")}. Sociedad B: ${B.join(", ")}. ¿Cuál elegiría ${r ? "Rawls (maximin: que el peor esté lo mejor posible)" : "el utilitarismo (mayor total)"}?`,
+  mx_s: (A, B, r, w) => r ? `El peor situado: A ${A[0]}, B ${B[0]}. Rawls elige <b>${w}</b>.` :
+    `Total: A ${A[0] + A[1] + A[2]}, B ${B[0] + B[1] + B[2]}. El utilitarismo elige <b>${w}</b>.`,
+  ay_q: r => `Un país tiene una renta nacional de ${m(r)} millones de euros. ¿Cuántos millones son el 0,7 % para ayuda al desarrollo?`,
+  ay_s: (r, a) => `${m(r)} · 0,007 = <b>${m(a)}</b> millones`,
+});
+})();

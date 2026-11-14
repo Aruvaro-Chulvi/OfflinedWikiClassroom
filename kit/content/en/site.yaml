@@ -1,0 +1,201 @@
+# Offlined WikiAula — general texts of the ZIM in US English (EN-US).
+# (The interface texts used by the engine are in engine/i18n/en.js)
+# Translated from content/es/site.yaml: same keys, same structure.
+
+zim:
+  title: Offlined WikiAula
+  description: Interactive courses for elementary, middle, and high school, offline
+  long_description: |
+    Offlined WikiAula is a free classroom: complete courses for elementary, middle,
+    and high school (grades 1 to 12) with encyclopedia-style lessons and interactive
+    exercises that change every time. Every lesson has its own mastery level, and
+    there are unit tests, spaced review, experience points, streaks, and achievements.
+    It works in any Kiwix reader; inside Offlined, progress is saved for each user
+    and Encartha, the Offlined AI, helps with the exercises.
+  creator: Offlined
+  publisher: Offlined
+  tags: _category:other;education;mathematics;_pictures:yes;_videos:no;_details:yes;_ftindex:yes
+  source: https://www.offlined.org/
+  license: CC BY-SA 4.0
+
+pages_titles:
+  home: Main Page
+  review: Review
+  progress: My progress
+  about: About Offlined WikiAula
+
+# Subjects included in the ZIM (folders of content/en, same names as in content/es). Only the
+# courses already translated (those with a curso.yaml in content/en) are built.
+asignaturas_activas: [matematicas, fisica-quimica, fisica, quimica]
+
+# Lessons whose figures have the caption ABOVE, as a title (instead of below): list of lesson ids, or «todas» (all).
+pies_en_figura: todas
+
+# Stages (international grades 1–12 with their local name). {g} = grade (1–12); {n} = year within the stage.
+etapas:
+  - nombre: Elementary School
+    desde: 1
+    hasta: 6
+    curso: "Grade {g}"
+  - nombre: Middle & High School
+    desde: 7
+    hasta: 10
+    curso: "Grade {g}"
+  - nombre: Upper High School
+    desde: 11
+    hasta: 12
+    curso: "Grade {g}"
+
+# Section titles that say nothing on their own about a figure (build.py adds the lesson title to them)
+encabezados_genericos: [definition, definitions, the method, method, the formula, formula, applications,
+  example, examples, worked examples, the idea, idea, properties, procedure, how it works, how to do it,
+  step by step, the four steps, in real life, what it is for, what is it for, review]
+# Uninformative start of the title of a «::: ejemplo» box («Worked example: …»), as a regular expression
+prefijo_ejemplo: '^(?:Worked\s+)?Example(?:\s+\d+)?\s*[:.—–-]?\s*'
+# Fixed questions whose options keep their order: Yes/No, True/False, or an option such as «None»/«All»
+orden_opciones:
+  si_no: ["yes", "no", "true", "false"]
+  primeras: [none, neither, all, both, it depends, "can't tell", cannot be determined, there is no, there are no]
+
+# Texts used only by build.py
+ui_build:
+  course: Course
+  stage: Level
+  unit: Unit
+  lesson: Lesson
+  time: Time
+  minutes: "about {n} minutes"
+  needs: Helpful to know first
+  mastery: Your mastery
+  seeAnswer: Show the answer
+  seeSolution: Show the solution
+  figure: Figure
+  tryIt: Try it yourself
+  summary: Key ideas
+  worked: Sample worked exercises
+  seeAlso: See also
+  inWikipedia: on Wikipedia
+  contents: Contents
+  siteSub: From Offlined WikiAula, the free classroom
+  subject: Subject
+  kind: Type
+  extension: Enrichment
+  extNote: "**Enrichment lesson.** It goes beyond the core content of the course: you can skip it without losing track, or study it if you want to go further."
+  grade: Grade
+  units: Units
+  lessons: Lessons
+  path: Your path
+  subjectStats: "{u} units · {l} lessons"
+  photo: Photo
+  photos: Photos
+  commons: Wikimedia Commons
+  # Community courses (build.py --curso=…)
+  communityBar: WikiAula · Community
+  communitySub: A WikiAula community course
+  communityAbout: About this course
+  communityAuthor: Author
+  communityLicense: Licence
+  communitySources: Sources
+  communityBy: "**WikiAula community course**, written by {autor} and reviewed before publication. Found a mistake or something that shouldn't be here? [Let us know](https://github.com/Aruvaro-Chulvi/WikiClassroom/issues/new?template=community-report.yml)."
+  communityShare: "Would you like to publish a course of your own? See how on [WikiClassroom](https://github.com/Aruvaro-Chulvi/WikiClassroom/blob/main/CONTRIBUTING.md)."
+  photoCredits: Photo credits
+  photoCreditsIntro: |
+    Many illustrations are made from free photos from Wikimedia Commons, turned
+    into watercolors. These are their authors and their licenses (public domain,
+    CC0, CC BY, or CC BY-SA). Illustrations based on a CC BY-SA photo are shared
+    under the same license.
+
+portada:
+  lema: Math, physics, and chemistry at your own pace, offline and free. From Grade 1 to Grade 12.
+  que_es_titulo: What Offlined WikiAula is
+  que_es: |
+    **Offlined WikiAula** is a complete classroom that fits in a single file and works **without
+    the internet**. It has **math from Grade 1 to Grade 12** and **physics and chemistry from
+    Grade 8 to Grade 12**, written like encyclopedia articles: clear explanations, step-by-step
+    worked examples, illustrations, and links to Wikipedia to learn more. After each lesson
+    there are exercises that **change every time**, so you can practice without memorizing
+    the answers.
+  rasgos:
+    - icono: wifi-off
+      titulo: Offline and free
+      texto: Everything is inside the file. No internet, no accounts, no ads, and you can copy it and share it.
+    - icono: book
+      titulo: From elementary to high school
+      texto: Hundreds of math, physics, and chemistry lessons, sorted by grade, with drawings, formulas, and step-by-step worked examples.
+    - icono: target
+      titulo: Exercises that change
+      texto: Every practice session creates new exercises and, if you make a mistake, shows you the solution step by step. At the end of each unit, a test with a medal.
+    - icono: lock
+      titulo: Your progress is yours
+      texto: Your level, your streaks, and your reviews are saved only on your device. Nobody else sees them, and they are never sent anywhere.
+  como_titulo: How you learn
+  pasos:
+    - titulo: Read the lesson
+      texto: Each lesson takes 20–60 minutes to read. It starts with a simple idea and builds on it with examples, drawings, and short exercises to check that you understand.
+    - titulo: Practice
+      texto: Eight exercises each time, always different. If you make a mistake, you see why and how to solve it. Every right answer earns experience points (XP).
+    - titulo: Level up
+      texto: "Each lesson goes through four levels: Attempted, Familiar (50%), Proficient (80%), and Mastered. To master it you also have to get it right on another day: that way, what you learn sticks."
+    - titulo: Review and earn medals
+      texto: The lessons you already know come back on the Review page a few days later, right when you start to forget them. Pass the test of each unit to earn its medal.
+  cursos: Courses
+  cursos_intro: Choose a level and then your grade. Each card is a subject; the bar shows how many lessons you have mastered.
+  familias_titulo: For families and teachers
+  familias: |
+    - **At home**: young children learn best by reading the lessons with an adult and trying
+      the small experiments they suggest. From Grade 3 or 4, they can move ahead on their own.
+    - **In class**: each lesson works as a guide for the class period, and its practice as
+      homework. The [[My progress]] page sums up each student's progress on their device and
+      lets them save a copy.
+    - **Open content**: the texts are licensed under CC BY-SA 4.0, and the photos come from
+      Wikimedia Commons, with their author and license in the caption (see [[About Offlined WikiAula]]).
+      You can copy, adapt, and share them as long as you credit the source.
+
+offlined: >-
+  **Offlined WikiAula shines in [Offlined](https://www.offlined.org/)**, the offline
+  knowledge app: there your progress is saved in your profile (everyone at home
+  has their own), each lesson is a card in *My WikiAlbum*, and Encartha, its AI,
+  explains the exercises you miss without giving you the answer.
+
+textos:
+  review: |
+    What you practice only once, you forget. This is where the lessons you have
+    already practiced come back, with more and more time in between: the next day,
+    three days later, a week later… If you get them right, the next review comes
+    later; if you miss them, they come back soon.
+  progress: |
+    Your experience, your streak, your courses, and your achievements.
+  about: |
+    **Offlined WikiAula** is a free and open educational project: courses for elementary,
+    middle, and high school written for studying without an internet connection.
+
+    ## Content
+
+    The lessons are original and follow the usual content of each grade in Europe
+    and the Americas (international grades 1 to 12). The exercises are generated
+    on the spot, so they are never exactly the same. You can find more information
+    in the Wikipedia links of each lesson.
+
+    ## Your progress
+
+    In a Kiwix reader, your progress is saved in the browser or app you are using.
+    If you switch devices or clear your browser data, it is lost: use the buttons
+    on [[My progress]] to save a copy and load it later. In Offlined, it is saved
+    in your user profile.
+
+    ## License
+
+    The texts, exercises, and images of Offlined WikiAula are available under the
+    [Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en) license.
+    You can copy, adapt, and share them, also for commercial purposes, as long as
+    you credit Offlined WikiAula and share your changes under the same license.
+    Offlined WikiAula is not affiliated with the Wikimedia Foundation or Wikipedia.
+
+    Formulas are displayed with [KaTeX](https://katex.org/) (MIT license,
+    © Khan Academy and contributors), included in this file together with its
+    license (`_aula/katex/LICENSE.txt`).
+
+pie: >-
+  The texts of Offlined WikiAula are available under the
+  [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en) license.
+  A project by [Offlined](https://www.offlined.org/) · [[About Offlined WikiAula]]

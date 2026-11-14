@@ -1,0 +1,78 @@
+/* WikiAula — textos y bancos de gen/cid6.js (Ciudadanía y ética, Grado 6), en español. */
+"use strict";
+(function () {
+const G = window.WA.I18N.es.gen;
+const S = G.cid6 = G.cid6 || {};
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const bank = (q, cats, why, items) => ({ q, cats, why, items, find: null });
+const n = x => String(x).replace(".", ",");
+const e2 = x => x.toFixed(2).replace(".", ",");
+const lst = o => `ventajas ${o.p.join(" + ")}, inconvenientes ${o.c.join(" + ")}`;
+const sum = a => a.reduce((x, y) => x + y, 0);
+Object.assign(S, {
+  responsable: bank(x => `${cap(x)}: ¿es responsable o irresponsable?`, ["Responsable", "Irresponsable"], ["Cumple y responde de sus actos.", "No cumple o culpa a otros."],
+    [["devolver a tiempo un libro de la biblioteca", 0], ["reconocer que rompiste algo y ofrecerte a arreglarlo", 0], ["preparar la mochila la noche antes", 0],
+     ["cumplir el horario de móvil acordado", 0], ["echar la culpa a tu hermano de lo que hiciste tú", 1], ["prometer ayudar y no aparecer", 1], ["olvidar dar de comer a tu mascota", 1],
+     ["copiar los deberes de otro", 1]]),
+  valor: bank(x => `${cap(x)}: ¿qué valor muestra?`, ["Honestidad", "Respeto", "Solidaridad", "Responsabilidad", "Justicia", "Tolerancia"],
+    ["Decir la verdad.", "Tratar bien a todos.", "Ayudar a quien lo necesita.", "Cumplir lo que toca.", "Dar a cada uno lo suyo.", "Aceptar otras formas de vivir."],
+    [["devolver el cambio que te dieron de más", 0], ["decir la verdad aunque te castiguen", 0], ["escuchar sin burlarte a quien opina distinto", 1], ["pedir permiso antes de coger algo", 1],
+     ["donar juguetes a una ONG", 2], ["ayudar a un compañero que no entiende la lección", 2], ["hacer tu parte del trabajo en grupo", 3], ["cuidar de tu hermano pequeño cuando te lo piden", 3],
+     ["repartir los turnos para que todos jueguen lo mismo", 4], ["que el árbitro pite igual a los dos equipos", 4], ["aceptar que tu amiga celebre otras fiestas religiosas", 5],
+     ["convivir con vecinos de costumbres distintas", 5]]),
+  presion: bank(x => `${cap(x)}: ¿resiste la presión de grupo o se deja llevar?`, ["Resiste", "Se deja llevar"], ["Decide por sí mismo.", "Hace lo que dice el grupo aunque no quiera."],
+    [["decir «no, prefiero otro plan» cuando proponen saltarse una clase", 0], ["no reenviar un vídeo que ridiculiza a alguien", 0], ["irse con otros amigos si el grupo se burla de alguien", 0],
+     ["probar algo peligroso porque «todos lo hacen»", 1], ["insultar a un compañero para que el grupo se ría", 1], ["comprarse unas zapatillas solo porque las llevan todos", 1]]),
+  cultura: bank(x => `«${x}»: ¿estereotipo, prejuicio, discriminación o interculturalidad?`, ["Estereotipo", "Prejuicio", "Discriminación", "Interculturalidad"],
+    ["Idea simple sobre un grupo.", "Juzgar antes de conocer.", "Tratar peor a alguien.", "Conocerse y convivir con respeto."],
+    [["Todos los de ese país son vagos", 0], ["Los de ciudad no saben nada del campo", 0], ["Seguro que el nuevo es malo en clase, viene de fuera", 1], ["No me fío de ella sin conocerla, por su ropa", 1],
+     ["No alquilarle un piso a alguien por su origen", 2], ["No dejar entrar en un local a alguien por su color de piel", 2], ["Organizar una fiesta con comidas de todos los países de la clase", 3],
+     ["Aprender saludos en las lenguas de los compañeros", 3]]),
+  genero: bank(x => `${cap(x)}: ¿favorece la igualdad o mantiene la desigualdad?`, ["Igualdad", "Desigualdad"], ["Mismos derechos y oportunidades.", "Trata distinto por ser mujer u hombre."],
+    [["repartir las tareas de casa entre todos", 0], ["pagar el mismo sueldo por el mismo trabajo", 0], ["que niños y niñas elijan libremente su deporte", 0], ["que un padre pida permiso para cuidar a su bebé", 0],
+     ["que solo la madre cuide a los abuelos", 1], ["pagar menos a una mujer por el mismo puesto", 1], ["decir que la ingeniería «no es para chicas»", 1], ["burlarse de un chico porque baila ballet", 1]]),
+  digital: bank(x => `${cap(x)}: ¿es seguro y respetuoso, o arriesgado?`, ["Seguro y respetuoso", "Arriesgado o irrespetuoso"], ["Protege tu privacidad y respeta a otros.", "Expone datos o hace daño."],
+    [["usar una contraseña larga y no contarla", 0], ["pedir permiso antes de subir una foto de alguien", 0], ["comprobar una noticia antes de compartirla", 0], ["bloquear a quien te molesta y contárselo a un adulto", 0],
+     ["publicar tu dirección en una red social", 1], ["aceptar como amigo a un desconocido", 1], ["reenviar una foto de un compañero para reírse", 1], ["compartir un mensaje alarmante sin comprobarlo", 1]]),
+  democracia: bank(x => `${cap(x)}: ¿es propio de una democracia o de una dictadura?`, ["Democracia", "Dictadura"], ["Libertades y poder repartido.", "Un poder sin control."],
+    [["elecciones libres cada cuatro años", 0], ["periódicos que critican al Gobierno", 0], ["varios partidos políticos", 0], ["jueces independientes", 0], ["un solo partido permitido", 1],
+     ["censura de los periódicos", 1], ["encarcelar a quien protesta pacíficamente", 1], ["un líder que gobierna sin elecciones durante décadas", 1]]),
+  institucion: bank(x => `${cap(x)}: ¿quién se encarga?`, ["Ayuntamiento", "Comunidad autónoma", "Cortes Generales", "Gobierno", "Jueces y tribunales"],
+    ["El municipio.", "La región.", "Hacen las leyes.", "Gobierna el país.", "Juzgan."],
+    [["recoger la basura del barrio", 0], ["arreglar los parques y las farolas", 0], ["gestionar los hospitales públicos de la región", 1], ["contratar a los profesores de los colegios públicos de la región", 1],
+     ["aprobar una ley para todo el país", 2], ["debatir y votar los presupuestos del Estado", 2], ["dirigir la política exterior del país", 3], ["dirigir el ejército y la policía nacional", 3],
+     ["decidir si alguien ha cometido un delito", 4], ["resolver un juicio entre dos vecinos", 4]]),
+  cderecho: bank(x => `Según la Constitución, ${x}, ¿es un derecho o un deber?`, ["Derecho", "Deber"], ["Algo que nos corresponde.", "Algo que debemos cumplir."],
+    [["votar en las elecciones", 0], ["la libertad de expresión", 0], ["una vivienda digna", 0], ["la protección de la salud", 0], ["pagar impuestos", 1], ["cumplir las leyes", 1],
+     ["contribuir al gasto público según lo que se tiene", 1]]),
+  servicio: bank(x => `${cap(x)}: ¿servicio público o negocio privado?`, ["Servicio público", "Negocio privado"], ["Lo pagamos entre todos con impuestos.", "Lo paga quien lo compra."],
+    [["el centro de salud del barrio", 0], ["un colegio público", 0], ["los bomberos", 0], ["la biblioteca municipal", 0], ["el alumbrado de las calles", 0], ["una tienda de ropa", 1],
+     ["un cine", 1], ["una pizzería", 1], ["una academia de inglés privada", 1]]),
+  ods: bank(x => `${cap(x)}: ¿con qué ODS se relaciona más?`, ["ODS 2 Hambre cero", "ODS 3 Salud", "ODS 4 Educación", "ODS 5 Igualdad de género", "ODS 6 Agua limpia", "ODS 13 Clima", "ODS 14 Vida submarina"],
+    ["Alimentación.", "Salud.", "Escuela.", "Mujeres y hombres.", "Agua.", "Clima.", "Mares."],
+    [["un banco de alimentos", 0], ["huertos para familias sin recursos", 0], ["campañas de vacunación", 1], ["más centros de salud en zonas rurales", 1], ["construir escuelas en aldeas", 2],
+     ["becas para estudiar", 2], ["igual sueldo para mujeres y hombres", 3], ["acabar con el matrimonio infantil", 3], ["pozos de agua potable", 4], ["depurar las aguas residuales", 4],
+     ["reducir las emisiones de CO₂", 5], ["plantar árboles contra el calentamiento", 5], ["limpiar el plástico de las playas", 6], ["proteger los arrecifes de coral", 6]]),
+  consumo: bank(x => `${cap(x)}: ¿consumo responsable o poco responsable?`, ["Responsable", "Poco responsable"], ["Piensa en el planeta y las personas.", "Compra de más o sin pensar."],
+    [["reparar la bici en vez de comprar otra", 0], ["comprar fruta de temporada y de cerca", 0], ["intercambiar libros de segunda mano", 0], ["elegir productos de comercio justo", 0],
+     ["comprar un móvil nuevo cada año aunque el viejo funcione", 1], ["comprar algo solo porque sale en un anuncio", 1], ["usar bolsas de plástico de un solo uso", 1], ["tirar ropa casi nueva por moda", 1]]),
+  dilemas: [["fútbol", "música"], ["campamento", "viaje con la familia"], ["teatro", "natación"], ["ajedrez", "robótica"], ["bici nueva", "ahorrar"]],
+  de_q1: (a, A, b, B) => `Opción «${a}»: ${lst(A)}. Opción «${b}»: ${lst(B)}. ¿Qué puntuación (ventajas − inconvenientes) tiene «${a}»?`,
+  de_s1: (a, A, s) => `(${A.p.join(" + ")}) − (${A.c.join(" + ")}) = ${sum(A.p)} − ${sum(A.c)} = <b>${s}</b>`,
+  de_q2: (a, A, b, B) => `Opción «${a}»: ${lst(A)}. Opción «${b}»: ${lst(B)}. Puntuando ventajas − inconvenientes, ¿qué opción gana?`,
+  de_s2: (a, sa, b, sb, w) => `${a}: ${sa}; ${b}: ${sb}. Gana <b>${w}</b>.`,
+  re_q: (h, k) => `Una familia de ${k} personas tiene ${h} horas de tareas de casa a la semana. Si se reparten por igual, ¿cuántas horas le tocan a cada una?`,
+  re_s: (h, k, r) => `${h} : ${k} = <b>${r}</b> horas`,
+  vo_q: (c, v) => `En un municipio hay ${c} personas con derecho a voto y votan ${v}. ¿Cuál es la participación en %?`,
+  vo_s: (c, v, p) => `${v} / ${c} = ${n(p / 100)} → <b>${p} %</b>`,
+  productos: [["un libro", 4], ["una barra de pan", 4], ["una mochila", 21], ["un balón", 21], ["unas zapatillas", 21], ["una entrada de cine", 21], ["una comida en un restaurante", 10]],
+  iv_q1: (x, p, t) => `Precio sin IVA de ${x}: ${p} €. Si el IVA es del ${t} %, ¿cuántos euros de IVA se pagan?`,
+  iv_s1: (p, t, q) => `${p} · ${n(t / 100)} = <b>${e2(q)}</b> €`,
+  iv_q2: (x, p, t) => `Precio sin IVA de ${x}: ${p} €. Si el IVA es del ${t} %, ¿cuánto pagas en total?`,
+  iv_s2: (p, t, q, f) => `IVA: ${p} · ${n(t / 100)} = ${e2(q)} €; total: ${p} + ${e2(q)} = <b>${e2(f)}</b> €`,
+  envases: [["galletas", 500, 800, 1000, "kilo", "g"], ["arroz", 1000, 2000, 1000, "kilo", "g"], ["zumo", 1, 1.5, 1, "litro", "L"], ["leche", 1, 6, 1, "litro", "L"],
+            ["detergente", 2, 3, 1, "litro", "L"], ["café", 250, 500, 1000, "kilo", "g"]],
+  un_q: (it, p1, p2) => `${cap(it[0])}: envase A de ${n(it[1])} ${it[5]} por ${e2(p1)} €; envase B de ${n(it[2])} ${it[5]} por ${e2(p2)} €. ¿Cuál sale más barato por ${it[4]}?`,
+  un_s: (it, p1, p2, r1, r2, w) => `A: ${e2(r1)} €/${it[4]}; B: ${e2(r2)} €/${it[4]}. Más barato: <b>${w}</b>.`,
+});
+})();
