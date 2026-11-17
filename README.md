@@ -25,8 +25,9 @@ the app that brings Wikipedia, maps and AI to your computer without internet. Ea
 
 | Language | File | Courses | Lessons | Size | Status |
 |---|---|---:|---:|---:|---|
-| Español | [`wikiaula_es_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-11.zim) | 19 | 717 | 13.5 MB | ✅ Available · under expert review |
-| English, Français, Português, Italiano, Deutsch, 中文, हिन्दी, العربية, Русский | — | — | — | — | 🛠️ Coming once the Spanish edition is validated |
+| English (US) | [`wikiaula_en_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-11/wikiaula_en_all_2026-11.zim) | 19 | 722 | 13.4 MB | ✅ Available |
+| Español | [`wikiaula_es_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-11/wikiaula_es_all_2026-11.zim) | 19 | 722 | 13.6 MB | ✅ Available |
+| Français, Português, Italiano, Deutsch, 中文, हिन्दी, العربية, Русский | — | — | — | — | 🛠️ Coming soon |
 
 One download per language, with all its subjects and grades. All files are in [Releases](../../releases);
 [`manifest.json`](manifest.json) lists them with their size and MD5.
@@ -93,8 +94,9 @@ app que lleva Wikipedia, mapas e IA a tu ordenador sin internet. Cada idioma es 
 
 | Idioma | Archivo | Cursos | Lecciones | Tamaño | Estado |
 |---|---|---:|---:|---:|---|
-| Español | [`wikiaula_es_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-11.zim) | 19 | 717 | 13,5 MB | ✅ Disponible · en revisión por expertos |
-| English, Français, Português, Italiano, Deutsch, 中文, हिन्दी, العربية, Русский | — | — | — | — | 🛠️ Cuando esté validada la edición en español |
+| Español | [`wikiaula_es_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-11/wikiaula_es_all_2026-11.zim) | 19 | 722 | 13,6 MB | ✅ Disponible |
+| English (EE. UU.) | [`wikiaula_en_all_2026-11.zim`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-11/wikiaula_en_all_2026-11.zim) | 19 | 722 | 13,4 MB | ✅ Disponible |
+| Français, Português, Italiano, Deutsch, 中文, हिन्दी, العربية, Русский | — | — | — | — | 🛠️ Próximamente |
 
 Una descarga por idioma, con todas sus asignaturas y cursos. Los archivos están en [Releases](../../releases);
 [`manifest.json`](manifest.json) los lista con su tamaño y su MD5.

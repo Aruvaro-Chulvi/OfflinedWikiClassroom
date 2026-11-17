@@ -1,19 +1,53 @@
 {
   "name": "WikiClassroom",
-  "version": "2026-10",
-  "updated": "2026-11-06",
+  "version": "2026-11",
+  "updated": "2026-11-17",
   "languages": [
     {
       "lang": "es",
       "name": "Español",
       "file": "wikiaula_es_all_2026-11.zim",
-      "url": "https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-10/wikiaula_es_all_2026-11.zim",
-      "size": 13466356,
-      "md5": "5068d46ad27ee7acd92fc84d01db2221",
+      "url": "https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-11/wikiaula_es_all_2026-11.zim",
+      "size": 13590041,
+      "md5": "0b33887fd98ebffb5323cf5f3d2ce4c0",
       "title": "Offlined WikiAula",
-      "date": "2026-11-06",
+      "date": "2026-11-17",
       "courses": 19,
-      "lessons": 717,
+      "lessons": 722,
+      "grades": [
+        1,
+        12
+      ],
+      "subjects": {
+        "math": [
+          1,
+          12
+        ],
+        "physics-chemistry": [
+          8,
+          10
+        ],
+        "physics": [
+          11,
+          12
+        ],
+        "chemistry": [
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "file": "wikiaula_en_all_2026-11.zim",
+      "url": "https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/2026-11/wikiaula_en_all_2026-11.zim",
+      "size": 13385957,
+      "md5": "f7691eca5c8c8eec5dfd2ab161a7d5b1",
+      "title": "Offlined WikiAula",
+      "date": "2026-11-17",
+      "courses": 19,
+      "lessons": 722,
       "grades": [
         1,
         12
