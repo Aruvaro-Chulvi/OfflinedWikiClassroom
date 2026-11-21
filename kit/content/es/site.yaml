@@ -85,8 +85,8 @@ ui_build:
   communityAuthor: Autor
   communityLicense: Licencia
   communitySources: Fuentes
-  communityBy: "**Curso de la comunidad de WikiAula**, escrito por {autor} y revisado antes de publicarse. ¿Has visto un error o algo que no debería estar aquí? [Avísanos](https://github.com/Aruvaro-Chulvi/WikiClassroom/issues/new?template=community-report.yml)."
-  communityShare: "¿Quieres publicar tu propio curso? Mira cómo en [WikiClassroom](https://github.com/Aruvaro-Chulvi/WikiClassroom/blob/main/CONTRIBUTING.es.md)."
+  communityBy: "**Curso de la comunidad de WikiAula**, escrito por {autor} y revisado antes de publicarse. ¿Has visto un error o algo que no debería estar aquí? [Avísanos](https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom/issues/new?template=community-report.yml)."
+  communityShare: "¿Quieres publicar tu propio curso? Mira cómo en [WikiClassroom](https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom/blob/main/CONTRIBUTING.es.md)."
   photoCredits: Créditos de las fotos
   photoCreditsIntro: |
     Muchas ilustraciones están hechas a partir de fotos libres de Wikimedia Commons,

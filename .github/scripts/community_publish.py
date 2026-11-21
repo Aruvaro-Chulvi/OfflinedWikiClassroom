@@ -36,7 +36,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]          # the repository this script belongs to
 TAG = "community"
-REPO = os.environ.get("GITHUB_REPOSITORY", "Aruvaro-Chulvi/WikiClassroom")
+REPO = os.environ.get("GITHUB_REPOSITORY", "Aruvaro-Chulvi/OfflinedWikiClassroom")
 JSON_URL = f"https://github.com/{REPO}/releases/download/{TAG}/community.json"
 FOLDER_RX = re.compile(r"^community/([a-z]{2,3})/([a-z0-9_]{2,40}\.[a-z0-9_]{2,40})/")
 

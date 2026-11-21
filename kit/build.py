@@ -1363,7 +1363,7 @@ def make_zim_file(zim_path: Path, site: dict, pages: dict, assets: dict, lang: s
                   ("Language", ISO3.get(lang, "eng")), ("Creator", community["author"]),
                   ("Publisher", "Offlined WikiAula (community)"), ("Date", _dt.date.today().isoformat()),
                   ("Tags", "_category:other;education;wikiaula-community;_pictures:yes;_videos:no;_details:yes;_ftindex:yes"),
-                  ("Source", "https://github.com/Aruvaro-Chulvi/WikiClassroom"), ("License", community["license"]), ("Flavour", "")]
+                  ("Source", "https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom"), ("License", community["license"]), ("Flavour", "")]
         for k, v in md:
             if v:
                 cr.add_metadata(k, v)

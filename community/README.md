@@ -6,5 +6,5 @@ One folder per course: `community/<lang>/<author>.<course>/`. Read [CONTRIBUTING
 Una carpeta por curso: `community/<idioma>/<autor>.<curso>/`. Lee [CONTRIBUTING.es.md](../CONTRIBUTING.es.md)
 antes de abrir un pull request.
 
-Published courses · Cursos publicados: [`community.json`](https://github.com/Aruvaro-Chulvi/WikiClassroom/releases/download/community/community.json)
+Published courses · Cursos publicados: [`community.json`](https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom/releases/download/community/community.json)
 · Withdrawn · Retirados: [`retired.yaml`](retired.yaml)

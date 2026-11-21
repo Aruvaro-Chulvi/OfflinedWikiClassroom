@@ -96,8 +96,8 @@ ui_build:
   communityAuthor: Author
   communityLicense: Licence
   communitySources: Sources
-  communityBy: "**WikiAula community course**, written by {autor} and reviewed before publication. Found a mistake or something that shouldn't be here? [Let us know](https://github.com/Aruvaro-Chulvi/WikiClassroom/issues/new?template=community-report.yml)."
-  communityShare: "Would you like to publish a course of your own? See how on [WikiClassroom](https://github.com/Aruvaro-Chulvi/WikiClassroom/blob/main/CONTRIBUTING.md)."
+  communityBy: "**WikiAula community course**, written by {autor} and reviewed before publication. Found a mistake or something that shouldn't be here? [Let us know](https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom/issues/new?template=community-report.yml)."
+  communityShare: "Would you like to publish a course of your own? See how on [WikiClassroom](https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom/blob/main/CONTRIBUTING.md)."
   photoCredits: Photo credits
   photoCreditsIntro: |
     Many illustrations are made from free photos from Wikimedia Commons, turned
