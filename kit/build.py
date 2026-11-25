@@ -30,7 +30,7 @@ Salida en dist/wikiaula/:
 Las páginas imitan la estructura del HTML de Wikipedia que generan los ZIM
 de Kiwix (mwoffliner): #content, h1.firstHeading, #mw-content-text >
 .mw-parser-output, table.infobox, .toc, .navbox… Así Offlined (Mi WikiÁlbum,
-Encartha, el visor) y cualquier lector de Kiwix las entienden igual que un
+Michael Knowledge, el visor) y cualquier lector de Kiwix las entienden igual que un
 artículo de Wikipedia. Todas las rutas son planas (sin carpetas), como en
 Wikipedia: "Portada", "Potencias_de_números_naturales"…
 

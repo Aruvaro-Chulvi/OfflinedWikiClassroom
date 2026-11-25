@@ -274,7 +274,7 @@ details.wa-static .wa-st-a summary { cursor: pointer; color: var(--link); font-s
 .wa-sol.open { border-top: 1px solid var(--line2); padding-top: 8px; }
 .wa-sol-t { font-weight: bold; font-size: .85em; text-transform: uppercase; letter-spacing: .03em; color: var(--fg2); }
 .wa-official { margin-top: 6px; font-size: .95em; }
-/* Encartha dentro de la práctica */
+/* Michael Knowledge dentro de la práctica */
 .wa-ai { display: flex; gap: 10px; align-items: flex-start; margin-top: 10px; padding: 10px 14px; border-radius: 4px; border: 1px solid var(--line2); border-left: 4px solid var(--link-v); background: var(--bg2); }
 .wa-ai-av { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
 .wa-ai-main { min-width: 0; flex: 1; }

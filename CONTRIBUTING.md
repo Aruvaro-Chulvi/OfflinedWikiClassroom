@@ -13,7 +13,7 @@ everyone to download.
 - [Lessons](#lessons)
 - [Exercises](#exercises)
 - [Your own exercise generators](#your-own-exercise-generators)
-- [Michael Encartha and your course](#michael-encartha-and-your-course)
+- [Michael Knowledge and your course](#michael-knowledge-and-your-course)
 - [Images](#images)
 - [What gets accepted](#what-gets-accepted)
 - [Licences](#licences)
@@ -128,7 +128,7 @@ ampliacion: true                  # (optional) enrichment lesson, can be skipped
 practica:                         # exercises (see below)
   - …
 ---
-First paragraph: a clear definition. It becomes the text of the lesson's card and what Encartha quotes.
+First paragraph: a clear definition. It becomes the text of the lesson's card and what Michael Knowledge quotes.
 
 ## A section
 Text, lists, tables…
@@ -209,33 +209,33 @@ published. Test them with:
 WA_EXTRA_GEN=community/en/jane_doe.chess_openings/gen node kit/engine/samples.js en --test c.jane_doe.
 ```
 
-## Michael Encartha and your course
+## Michael Knowledge and your course
 
-**There is nothing to program.** Every course built with the kit is connected to **Michael Encartha**, the
+**There is nothing to program.** Every course built with the kit is connected to **Michael Knowledge**, the
 AI teacher of Offlined, in the same way as the official ones:
 
-- **Typed answers.** When a student types an answer that does not match yours letter by letter, Encartha
+- **Typed answers.** When a student types an answer that does not match yours letter by letter, Michael Knowledge
   decides whether it means the same (`2,5` = `5/2`, a synonym, a small spelling mistake…) and **its verdict
-  counts**. Encartha receives the question, your official answer, the other accepted answers and your
+  counts**. Michael Knowledge receives the question, your official answer, the other accepted answers and your
   solution (`explicacion` or the generator's `sol`), and it is told never to contradict the official answer.
-- **Mistakes.** When a student gets an exercise wrong, Encartha explains why, using your solution.
-- **«Explain it with Encartha»** (in each lesson's infobox) explains the lesson in other words using **only the lesson's text**.
-- **«Keep talking with Encartha»** opens a conversation in the *WikiAula* folder of the chat, with the exercise.
+- **Mistakes.** When a student gets an exercise wrong, Michael Knowledge explains why, using your solution.
+- **«Explain it with Michael Knowledge»** (in each lesson's infobox) explains the lesson in other words using **only the lesson's text**.
+- **«Keep talking with Michael Knowledge»** opens a conversation in the *WikiAula* folder of the chat, with the exercise.
 - Lessons become cards in **My WikiAlbum**, and progress is saved in each user's profile.
 
-To make Encartha a good teacher of your course:
+To make Michael Knowledge a good teacher of your course:
 
-1. Write an `explicacion` for **every** fixed exercise and a `sol` in every generator: it is what Encartha
+1. Write an `explicacion` for **every** fixed exercise and a `sol` in every generator: it is what Michael Knowledge
    explains from.
 2. In `respuesta`, list **every** answer you accept (`[Ruy Lopez, Spanish opening]`), and use `ayuda` when the
    format matters ("in cm", "as a fraction").
-3. Start each lesson with a clear **first paragraph**: it is the card text and what Encartha quotes.
-4. Encartha only reads text: if a figure is essential, describe it in the caption or the text.
+3. Start each lesson with a clear **first paragraph**: it is the card text and what Michael Knowledge quotes.
+4. Michael Knowledge only reads text: if a figure is essential, describe it in the caption or the text.
 5. If the exercise asks for a particular form (simplified fraction, units, decimals), say so in the question:
-   Encartha will then reject answers in another form.
+   Michael Knowledge will then reject answers in another form.
 
 Students can turn the AI off in Offlined; the course still works (answers are then checked letter by letter).
-In Kiwix, progress is kept in the browser and Encartha is not available.
+In Kiwix, progress is kept in the browser and Michael Knowledge is not available.
 
 ## Images
 

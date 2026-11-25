@@ -10,7 +10,7 @@ zim:
     interactivos que cambian cada vez. Cada lección tiene su nivel de dominio,
     hay pruebas por unidad, repaso espaciado, experiencia, rachas y logros.
     Funciona en cualquier lector de Kiwix; dentro de Offlined el progreso se
-    guarda por usuario y Encartha, la IA de Offlined, ayuda con los ejercicios.
+    guarda por usuario y Michael Knowledge, la IA de Offlined, ayuda con los ejercicios.
   creator: Offlined
   publisher: Offlined
   tags: _category:other;education;mathematics;_pictures:yes;_videos:no;_details:yes;_ftindex:yes
@@ -143,7 +143,7 @@ offlined: >-
   **Offlined WikiAula brilla en [Offlined](https://www.offlined.org/)**, la app de
   conocimiento sin conexión: allí tu progreso se guarda en tu perfil (cada
   persona de la casa con el suyo), cada lección es una tarjeta de *Mi WikiÁlbum* y
-  Encartha, su IA, te explica los ejercicios que fallas sin darte la respuesta.
+  Michael Knowledge, su IA, te explica los ejercicios que fallas sin darte la respuesta.
 
 textos:
   review: |

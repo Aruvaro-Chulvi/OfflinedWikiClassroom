@@ -43,7 +43,7 @@ One download per language, with all its subjects and grades. All files are in [R
 
 Open **Wikis → WikiAula** and choose your language: Offlined reads [`manifest.json`](manifest.json) from the
 latest release, downloads the ZIM, checks its MD5 and installs it. Progress is saved per user profile,
-lessons become cards in *My WikiAlbum* and Encartha, Offlined's AI, can explain a lesson or a mistake
+lessons become cards in *My WikiAlbum* and Michael Knowledge, Offlined's AI, can explain a lesson or a mistake
 without giving the answer away. If you already have the file, use *I already have it: choose file*.
 
 ### In any Kiwix reader
@@ -58,7 +58,7 @@ arrive as pull requests in [`community/`](community), are checked automatically 
 code of their exercise generators, a preview ZIM) and **reviewed by hand by the maintainer**. Only after a
 course is merged is it built with the official engine and listed in `community.json` of the
 [`community` release](../../releases/tag/community), which is the only list Offlined reads (*WikiAula →
-Community*). Every course gets progress per profile, My WikiAlbum cards and Michael Encartha's help, with
+Community*). Every course gets progress per profile, My WikiAlbum cards and Michael Knowledge's help, with
 nothing to program. A course can be withdrawn later; Offlined then stops serving it.
 
 **How to write and share one: [CONTRIBUTING.md](CONTRIBUTING.md)** · the build kit is in [`kit/`](kit)
@@ -112,7 +112,7 @@ Una descarga por idioma, con todas sus asignaturas y cursos. Los archivos están
 
 Abre **Wikis → WikiAula** y elige tu idioma: Offlined lee [`manifest.json`](manifest.json) de la última
 release, descarga el ZIM, comprueba su MD5 y lo instala. El progreso se guarda en cada perfil, las
-lecciones se convierten en cartas de *Mi WikiÁlbum* y Encartha, la IA de Offlined, te explica una lección
+lecciones se convierten en cartas de *Mi WikiÁlbum* y Michael Knowledge, la IA de Offlined, te explica una lección
 o un error sin darte la respuesta. Si ya tienes el archivo, usa *Ya lo tengo: elegir archivo*.
 
 ### En cualquier lector Kiwix
@@ -128,7 +128,7 @@ compartirlo aquí. Los cursos llegan como pull requests en [`community/`](commun
 el responsable del proyecto**. Solo cuando se acepta, el curso se compila con el motor oficial y se añade a
 `community.json` en la [release `community`](../../releases/tag/community), la única lista que lee Offlined
 (*WikiAula → Comunidad*). Cada curso tiene progreso por perfil, cartas de Mi WikiÁlbum y la ayuda de
-Michael Encartha, sin programar nada. Un curso se puede retirar más adelante; Offlined deja entonces de
+Michael Knowledge, sin programar nada. Un curso se puede retirar más adelante; Offlined deja entonces de
 servirlo.
 
 **Cómo escribir y compartir uno: [CONTRIBUTING.es.md](CONTRIBUTING.es.md)** · el kit para compilar está en

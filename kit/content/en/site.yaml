@@ -11,7 +11,7 @@ zim:
     exercises that change every time. Every lesson has its own mastery level, and
     there are unit tests, spaced review, experience points, streaks, and achievements.
     It works in any Kiwix reader; inside Offlined, progress is saved for each user
-    and Encartha, the Offlined AI, helps with the exercises.
+    and Michael Knowledge, the Offlined AI, helps with the exercises.
   creator: Offlined
   publisher: Offlined
   tags: _category:other;education;mathematics;_pictures:yes;_videos:no;_details:yes;_ftindex:yes
@@ -154,7 +154,7 @@ portada:
 offlined: >-
   **Offlined WikiAula shines in [Offlined](https://www.offlined.org/)**, the offline
   knowledge app: there your progress is saved in your profile (everyone at home
-  has their own), each lesson is a card in *My WikiAlbum*, and Encartha, its AI,
+  has their own), each lesson is a card in *My WikiAlbum*, and Michael Knowledge, its AI,
   explains the exercises you miss without giving you the answer.
 
 textos:

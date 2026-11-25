@@ -13,7 +13,7 @@ aparece en **Offlined → WikiAula → Comunidad** para que cualquiera lo descar
 - [Las lecciones](#las-lecciones)
 - [Los ejercicios](#los-ejercicios)
 - [Tus propios generadores de ejercicios](#tus-propios-generadores-de-ejercicios)
-- [Michael Encartha y tu curso](#michael-encartha-y-tu-curso)
+- [Michael Knowledge y tu curso](#michael-knowledge-y-tu-curso)
 - [Imágenes](#imágenes)
 - [Qué se acepta](#qué-se-acepta)
 - [Licencias](#licencias)
@@ -127,7 +127,7 @@ ampliacion: true                  # (opcional) lección de ampliación, se puede
 practica:                         # ejercicios (ver abajo)
   - …
 ---
-Primer párrafo: una definición clara. Es el texto de la tarjeta de la lección y lo que cita Encartha.
+Primer párrafo: una definición clara. Es el texto de la tarjeta de la lección y lo que cita Michael Knowledge.
 
 ## Un apartado
 Texto, listas, tablas…
@@ -208,33 +208,33 @@ línea, el curso no se publica. Pruébalos con:
 WA_EXTRA_GEN=community/es/marta_lopez.ajedrez/gen node kit/engine/samples.js es --test c.marta_lopez.
 ```
 
-## Michael Encartha y tu curso
+## Michael Knowledge y tu curso
 
-**No hay que programar nada.** Todo curso compilado con el kit está conectado con **Michael Encartha**, el
+**No hay que programar nada.** Todo curso compilado con el kit está conectado con **Michael Knowledge**, el
 profesor de IA de Offlined, igual que los oficiales:
 
 - **Respuestas escritas.** Cuando un alumno escribe una respuesta que no coincide letra a letra con la tuya,
-  Encartha decide si dice lo mismo (`2,5` = `5/2`, un sinónimo, una falta pequeña…) y **su veredicto cuenta**.
-  Encartha recibe la pregunta, tu respuesta oficial, las otras respuestas aceptadas y tu solución
+  Michael Knowledge decide si dice lo mismo (`2,5` = `5/2`, un sinónimo, una falta pequeña…) y **su veredicto cuenta**.
+  Michael Knowledge recibe la pregunta, tu respuesta oficial, las otras respuestas aceptadas y tu solución
   (`explicacion` o el `sol` del generador), y nunca contradice la respuesta oficial.
-- **Fallos.** Cuando un alumno falla, Encartha le explica por qué con tu solución.
-- **«Explícamelo con Encartha»** (en la ficha de cada lección) explica la lección con otras palabras usando **solo su texto**.
-- **«Seguir hablando con Encartha»** abre una conversación en la carpeta *WikiAula* del chat, con el ejercicio.
+- **Fallos.** Cuando un alumno falla, Michael Knowledge le explica por qué con tu solución.
+- **«Explícamelo con Michael Knowledge»** (en la ficha de cada lección) explica la lección con otras palabras usando **solo su texto**.
+- **«Seguir hablando con Michael Knowledge»** abre una conversación en la carpeta *WikiAula* del chat, con el ejercicio.
 - Las lecciones son tarjetas de **Mi WikiÁlbum** y el progreso se guarda en el perfil de cada usuario.
 
-Para que Encartha enseñe bien tu curso:
+Para que Michael Knowledge enseñe bien tu curso:
 
-1. Escribe una `explicacion` en **cada** ejercicio fijo y un `sol` en cada generador: es de donde Encartha
+1. Escribe una `explicacion` en **cada** ejercicio fijo y un `sol` en cada generador: es de donde Michael Knowledge
    explica.
 2. En `respuesta`, pon **todas** las respuestas que aceptas (`[Apertura española, Ruy López]`), y usa `ayuda`
    cuando importe el formato («en cm», «en forma de fracción»).
-3. Empieza cada lección con un **primer párrafo** claro: es el texto de la tarjeta y lo que cita Encartha.
-4. Encartha solo lee texto: si una figura es imprescindible, descríbela en el pie o en el texto.
+3. Empieza cada lección con un **primer párrafo** claro: es el texto de la tarjeta y lo que cita Michael Knowledge.
+4. Michael Knowledge solo lee texto: si una figura es imprescindible, descríbela en el pie o en el texto.
 5. Si el ejercicio pide una forma concreta (fracción simplificada, unidades, decimales), dilo en el enunciado:
-   así Encartha rechaza las respuestas escritas de otra forma.
+   así Michael Knowledge rechaza las respuestas escritas de otra forma.
 
 El alumno puede apagar la IA en Offlined y el curso sigue funcionando (las respuestas se comprueban letra a
-letra). En Kiwix, el progreso se guarda en el navegador y no hay Encartha.
+letra). En Kiwix, el progreso se guarda en el navegador y no hay Michael Knowledge.
 
 ## Imágenes
 

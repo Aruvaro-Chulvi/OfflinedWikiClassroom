@@ -317,7 +317,7 @@ def check_course(folder: Path, lang: str | None = None, engine_gens: set | None 
                 elif "respuesta" not in q:
                     rep.err(f"{w}: necesita opciones o respuesta")
                 if not q.get("explicacion"):
-                    rep.warn(f"{w}: sin explicacion (Encartha y el alumno la usan cuando se falla)")
+                    rep.warn(f"{w}: sin explicacion (Michael Knowledge y el alumno la usan cuando se falla)")
     for d in sorted(p for p in folder.iterdir() if p.is_dir() and p.name not in ("img", "gen")):
         if d.resolve() not in seen_folders:
             rep.warn(f"carpeta «{d.name}» que no usa ninguna unidad")

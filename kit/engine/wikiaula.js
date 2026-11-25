@@ -4,7 +4,7 @@
    localStorage del navegador. Dentro de Offlined, el proxy inyecta
    window.OFFLINED_AULA ({storage, tutor, theme}) y el progreso se guarda en
    el perfil del usuario (/api/learn/aula/storage); además avisa a la app
-   (postMessage {type:"ofl:aula", ev, …}) para Mi WikiÁlbum y Encartha.
+   (postMessage {type:"ofl:aula", ev, …}) para Mi WikiÁlbum y Michael Knowledge.
 
    Necesita antes: i18n/<lang>.js, gen/*.js y data.js (WA.DATA, lo genera
    build.py). Puntos de montaje que pone build.py en el HTML:
@@ -680,8 +680,8 @@ function userHtml(item, val) {
 }
 WA.check = check; WA.answerHtml = answerHtml; WA.parseExpr = parseExpr; WA.parseNum = parseNum;
 
-// ═════════════════ Encartha dentro de la práctica (solo en Offlined) ═════════════════
-// Las respuestas escritas que no coinciden letra a letra las revisa Encartha y
+// ═════════════════ Michael Knowledge dentro de la práctica (solo en Offlined) ═════════════════
+// Las respuestas escritas que no coinciden letra a letra las revisa Michael Knowledge y
 // su veredicto es el que cuenta; en los fallos explica por qué. Offlined hace
 // la consulta (/api/wikiaula/grade) y devuelve el texto a trozos con
 // postMessage {type: "ofl:aula-grade", id, kind: waiting|delta|done}.
@@ -719,7 +719,7 @@ function aiBoxHtml(inner) {
   const av = BR && BR.avatar ? `<img class="wa-ai-av" src="${esc(BR.avatar)}" alt="">` : "";
   return `<div class="wa-ai">${av}<div class="wa-ai-main"><div class="wa-ai-name">${esc(t("aiName"))}</div><div class="wa-ai-body">${inner || ""}</div></div></div>`;
 }
-// Recuadro de Encartha con su estado (revisando… 5 s) y el texto según llega
+// Recuadro de Michael Knowledge con su estado (revisando… 5 s) y el texto según llega
 function aiBox(fb, key, append) {
   const tmp = D.createElement("div");
   tmp.innerHTML = aiBoxHtml("");
@@ -742,7 +742,7 @@ function aiBox(fb, key, append) {
   box.scrollIntoView({ block: "nearest", behavior: "smooth" });
   return B;
 }
-// Pide a Encartha que corrija ("grade") o explique ("explain"). Devuelve la
+// Pide a Michael Knowledge que corrija ("grade") o explique ("explain"). Devuelve la
 // función para cancelarlo. onDone(veredicto, texto, error).
 function aiGrade(mode, data, box, onDone) {
   const id = "g" + Date.now().toString(36) + "-" + (++aiSeq), t0 = Date.now();
@@ -907,11 +907,11 @@ function mountPractice(el) {
     answered = true;
     const ok = check(it, v);
     el.querySelectorAll(".wa-in").forEach(x => x.disabled = true);
-    // Respuesta escrita que no coincide letra a letra: decide Encartha
+    // Respuesta escrita que no coincide letra a letra: decide Michael Knowledge
     if (!ok && !CHOICE(it.kind) && aiOn()) review(it, v);
     else settle(it, v, ok, null);
   }
-  // Datos del ejercicio para Encartha (texto plano, con potencias legibles)
+  // Datos del ejercicio para Michael Knowledge (texto plano, con potencias legibles)
   function aiData(it, v) {
     const l = LESSONS[it.lesson];
     const note = [];
@@ -923,7 +923,7 @@ function mountPractice(el) {
       alts: it.kind === "text" ? [].concat(it.ans).slice(1).join(" | ") : "",
       solution: plainM(it.sol || ""), note: note.join(" ") };
   }
-  // Encartha revisa la respuesta: el veredicto que cuenta es el suyo
+  // Michael Knowledge revisa la respuesta: el veredicto que cuenta es el suyo
   function review(it, v) {
     const fb = el.querySelector(".wa-fb"), act = el.querySelector(".wa-actions");
     const box = aiBox(fb, "aiChecking");
@@ -952,7 +952,7 @@ function mountPractice(el) {
     });
     const last = i === q.length - 1;
     const aiText = ai && ai.text ? ai.text : "";
-    // Con Encartha dentro de la práctica: su respuesta va en la tarjeta y se
+    // Con Michael Knowledge dentro de la práctica: su respuesta va en la tarjeta y se
     // puede seguir hablando con él; sin ella (Offlined antiguo), al chat.
     const tutor = aiText ? `<button class="wa-btn ghost wa-ai-chat">${esc(t("aiContinue"))}</button>`
       : !ok && aiOn() ? `<button class="wa-btn ghost wa-tutor">${esc(t("askTutor"))}</button>`
@@ -980,7 +980,7 @@ function mountPractice(el) {
     };
     const cb = act.querySelector(".wa-ai-chat");
     if (cb) cb.replaceWith(chatBtn("grade", aiText));
-    // Fallo: Encartha explica por qué, aquí mismo
+    // Fallo: Michael Knowledge explica por qué, aquí mismo
     const tb = act.querySelector(".wa-tutor");
     if (tb) tb.onclick = () => {
       tb.remove();
@@ -1238,7 +1238,7 @@ W.addEventListener("message", e => {
   else if (d.type === "ofl:aula-grade" && AI_CB[d.id]) AI_CB[d.id](d);
 });
 
-// Botón "Explícamelo con Encartha" de la ficha (solo dentro de Offlined)
+// Botón "Explícamelo con Michael Knowledge" de la ficha (solo dentro de Offlined)
 function mountTutorLesson() {
   D.querySelectorAll(".wa-tutor-lesson").forEach(b => {
     if (!(BR && BR.tutor)) { b.remove(); return; }
