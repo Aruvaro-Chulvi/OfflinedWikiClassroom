@@ -1,17 +1,17 @@
 {
   "name": "WikiClassroom",
   "version": "2026-11",
-  "updated": "2026-11-17",
+  "updated": "2026-11-26",
   "languages": [
     {
       "lang": "es",
       "name": "Español",
       "file": "wikiaula_es_all_2026-11.zim",
       "url": "https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom/releases/download/2026-11/wikiaula_es_all_2026-11.zim",
-      "size": 13590041,
-      "md5": "0b33887fd98ebffb5323cf5f3d2ce4c0",
+      "size": 13590972,
+      "md5": "b1adcc3973692e1d63aa3e9b339a07ce",
       "title": "Offlined WikiAula",
-      "date": "2026-11-17",
+      "date": "2026-11-26",
       "courses": 19,
       "lessons": 722,
       "grades": [
@@ -42,10 +42,10 @@
       "name": "English",
       "file": "wikiaula_en_all_2026-11.zim",
       "url": "https://github.com/Aruvaro-Chulvi/OfflinedWikiClassroom/releases/download/2026-11/wikiaula_en_all_2026-11.zim",
-      "size": 13385957,
-      "md5": "f7691eca5c8c8eec5dfd2ab161a7d5b1",
+      "size": 13388069,
+      "md5": "e446946ecd81743563f2e9b253c9113a",
       "title": "Offlined WikiAula",
-      "date": "2026-11-17",
+      "date": "2026-11-26",
       "courses": 19,
       "lessons": 722,
       "grades": [
